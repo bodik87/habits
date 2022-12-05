@@ -31,7 +31,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className="w-full px-4 max-w-[38rem] mx-auto flex flex-col gap-4">
+      <div className="w-full px-4 pb-20 max-w-[38rem] mx-auto flex flex-col gap-4">
         {cards.map((card) => (
           <Card
             key={card.id}
