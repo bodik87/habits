@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         myRed: "#F87267",
         myGreen: "#55F2A1",
+        mySalad: "#daeb69",
         myYellow: "#FEE36E",
         myPink: "#FC98B4",
         myViolet: "#8A78EE",

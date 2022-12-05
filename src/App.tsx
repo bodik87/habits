@@ -6,8 +6,10 @@ const COLORS = [
   "bg-myBlue",
   "bg-myYellow",
   "bg-myRed",
+  "bg-mySalad",
   "bg-myPink",
   "bg-myViolet",
+  "bg-myGreen",
 ];
 
 const cards = [
@@ -17,10 +19,12 @@ const cards = [
   {
     id: 4,
     title: "Daily Breathing Meditation",
-    color: "bg-myPink",
+    color: "bg-mySalad",
     repeat: 10,
   },
   { id: 5, title: "Call friend", color: "bg-myViolet", repeat: 8 },
+  { id: 5, title: "Clean room", color: "bg-myPink", repeat: 7 },
+  { id: 5, title: "By new phone", color: "bg-myGreen", repeat: 5 },
 ];
 
 function App() {
