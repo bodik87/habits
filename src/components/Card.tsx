@@ -9,31 +9,31 @@ interface ICardProps {
 
 export const Card = ({ color, title, repeat }: ICardProps) => {
   const [goal, setGoal] = useState(0);
-  const [result, setResult] = useState(1);
-  const [circle, setCircle] = useState(0);
+  const [result, setResult] = useState(0);
+  const [circleDiameter, setCircleDiameter] = useState(0);
   const [percent, setPercent] = useState(0);
+  const [cardWidth, setCardWidth] = useState(0);
 
-  const [width, setWidth] = useState(0);
+  const cardWidthRef = useRef<any>();
 
-  const cardWidth = useRef<any>();
   useEffect(() => {
     setGoal(repeat);
-    setWidth(cardWidth.current.clientWidth + 80);
+    setCardWidth(cardWidthRef.current.clientWidth);
   }, []);
 
-  const step = Math.ceil((width * 1.8) / goal);
+  const step = Math.ceil((cardWidth * 1.85) / goal);
 
   const setProgress = () => {
     if (percent !== 100) {
       setResult(result + 1);
-      setCircle(circle + step);
+      setCircleDiameter(circleDiameter + step);
       setPercent(Math.ceil((result / goal) * 100));
     }
   };
 
   return (
     <div
-      ref={cardWidth}
+      ref={cardWidthRef}
       onClick={setProgress}
       className="h-24 bg-myWhite p-6 rounded-xl relative overflow-hidden"
     >
@@ -41,9 +41,9 @@ export const Card = ({ color, title, repeat }: ICardProps) => {
         <div
           className={`${color} left-8 flex justify-center items-center rounded-full absolute z-0`}
           style={{
-            width: `${circle}px`,
-            height: `${circle}px`,
-            marginLeft: `-${circle - circle / 2}px`,
+            width: `${circleDiameter}px`,
+            height: `${circleDiameter}px`,
+            marginLeft: `-${circleDiameter - circleDiameter / 2}px`,
           }}
         ></div>
         <span className="font-semibold absolute left-5">{percent}%</span>
