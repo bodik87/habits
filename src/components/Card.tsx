@@ -4,10 +4,11 @@ import styles from "./Card.module.css";
 interface ICardProps {
   color: string;
   title: string;
+  repeat: number;
 }
 
-export const Card = ({ color, title }: ICardProps) => {
-  const [goal, setGoal] = useState(5);
+export const Card = ({ color, title, repeat }: ICardProps) => {
+  const [goal, setGoal] = useState(0);
   const [result, setResult] = useState(1);
   const [circle, setCircle] = useState(0);
   const [percent, setPercent] = useState(0);
@@ -16,7 +17,8 @@ export const Card = ({ color, title }: ICardProps) => {
 
   const cardWidth = useRef<any>();
   useEffect(() => {
-    setWidth(cardWidth.current.clientWidth + 50);
+    setGoal(repeat);
+    setWidth(cardWidth.current.clientWidth + 80);
   }, []);
 
   const step = Math.ceil((width * 1.8) / goal);
