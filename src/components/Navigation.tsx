@@ -18,11 +18,9 @@ const Plus = () => {
 
 export const Navigation = () => {
   return (
-    <div className="">
-      <div className="px-4 mt-4 mb-2 flex justify-between relative">
-        <Burger />
-        <Plus />
-      </div>
+    <div className="sticky max-w-[55rem] mx-auto bg-white/50 backdrop-blur-md bottom-0 h-14 z-20 px-8 md:px-[4.5rem] flex justify-between items-center">
+      <Burger />
+      <Plus />
     </div>
   );
 };

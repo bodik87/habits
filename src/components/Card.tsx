@@ -47,7 +47,7 @@ export const Card = ({ color, title, repeat }: ICardProps) => {
           }}
         ></div>
         <span className="font-semibold absolute left-5">{percent}%</span>
-        <div className="flex w-[11rem] px-2 justify-between z-10">
+        <div className="flex w-[12rem] px-2 justify-between z-10">
           <div className={styles.check}></div>
           <div className={styles.check}></div>
           <div className={styles.check}></div>
