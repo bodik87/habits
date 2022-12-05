@@ -9,7 +9,7 @@ const DateGroup = () => {
 
 export const Header = () => {
   return (
-    <div className="sticky max-w-[43rem] mx-auto bg-white/50 backdrop-blur-md top-0 h-28 z-20 px-8 md:px-[4.5rem] flex justify-between items-center">
+    <div className="sticky max-w-[43rem] mx-auto bg-white/60 backdrop-blur-md top-0 h-28 z-20 px-8 md:px-[4.5rem] flex justify-between items-center">
       <p className=" font-medium text-3xl">Habit</p>
       <div className="flex w-[12rem] justify-between">
         <DateGroup />
