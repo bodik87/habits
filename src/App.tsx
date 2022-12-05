@@ -27,15 +27,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className="w-full px-4 max-w-[50rem] mx-auto flex flex-col gap-4">
-        {cards.map((card) => (
-          <Card
-            key={card.id}
-            title={card.title}
-            color={card.color}
-            repeat={card.repeat}
-          />
-        ))}
+      <div className="w-full px-4 max-w-[38rem] mx-auto flex flex-col gap-4">
         {cards.map((card) => (
           <Card
             key={card.id}
