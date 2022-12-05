@@ -5,7 +5,6 @@
 :root {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
-  line-height: 24px;
   font-weight: 400;
   user-select: none;
   font-synthesis: none;
@@ -19,6 +18,7 @@
 body {
   margin: 0 auto;
   padding: 16px;
+  /* letter-spacing: 0; */
   /* place-items: center; */
   max-width: 800px;
   min-height: 100vh;

@@ -1,4 +1,6 @@
 import { Card } from "./components/Card";
+import { Header } from "./components/Header";
+import { Navigation } from "./components/Navigation";
 
 const COLORS = [
   "bg-myBlue",
@@ -24,6 +26,8 @@ const cards = [
 function App() {
   return (
     <div className="w-full flex flex-col gap-4">
+      <Navigation />
+      <Header />
       {cards.map((card) => (
         <Card
           key={card.id}

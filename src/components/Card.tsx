@@ -35,7 +35,7 @@ export const Card = ({ color, title, repeat }: ICardProps) => {
     <div
       ref={cardWidthRef}
       onClick={setProgress}
-      className="h-24 bg-myWhite p-6 rounded-xl relative overflow-hidden"
+      className="h-24 bg-myWhite py-6 px-4 rounded-xl relative overflow-hidden"
     >
       <div className="flex items-center justify-end">
         <div
@@ -47,7 +47,7 @@ export const Card = ({ color, title, repeat }: ICardProps) => {
           }}
         ></div>
         <span className="font-semibold absolute left-5">{percent}%</span>
-        <div className="flex gap-4 z-10">
+        <div className="flex w-[11rem] px-2 justify-between z-10">
           <div className={styles.check}></div>
           <div className={styles.check}></div>
           <div className={styles.check}></div>
