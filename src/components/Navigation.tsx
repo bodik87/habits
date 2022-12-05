@@ -18,9 +18,11 @@ const Plus = () => {
 
 export const Navigation = () => {
   return (
-    <div className="px-4 mt-4 mb-2 flex justify-between relative">
-      <Burger />
-      <Plus />
+    <div className="">
+      <div className="px-4 mt-4 mb-2 flex justify-between relative">
+        <Burger />
+        <Plus />
+      </div>
     </div>
   );
 };

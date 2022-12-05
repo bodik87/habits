@@ -26,8 +26,16 @@ const cards = [
 function App() {
   return (
     <div className="w-full flex flex-col gap-4">
-      <Navigation />
       <Header />
+      <Navigation />
+      {cards.map((card) => (
+        <Card
+          key={card.id}
+          title={card.title}
+          color={card.color}
+          repeat={card.repeat}
+        />
+      ))}
       {cards.map((card) => (
         <Card
           key={card.id}
