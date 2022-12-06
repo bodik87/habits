@@ -37,7 +37,7 @@ export const Card = ({ color, title, repeat }: ICardProps) => {
       // onClick={setProgress}
       className="h-24 bg-myWhite py-4 px-3 rounded-xl relative overflow-hidden"
     >
-      <div className="flex items-center justify-end">
+      <div className="flex items-center h-[10px] mt-[6px] justify-end">
         <div
           className={`${color} left-8 flex justify-center items-center rounded-full absolute z-0`}
           style={{
@@ -47,12 +47,12 @@ export const Card = ({ color, title, repeat }: ICardProps) => {
           }}
         ></div>
         <span className="font-semibold absolute left-5">{percent}%</span>
-        <div className="flex w-[12rem] px-2 justify-between items-center z-10">
+        <div className="flex w-[12rem] justify-between items-center z-10">
           <Checkbox isChecked={false} />
           <Checkbox isChecked={false} />
-          <Checkbox isChecked={true} />
-          <Checkbox isChecked={true} />
-          <Checkbox isChecked={true} />
+          <Checkbox isChecked={false} />
+          <Checkbox isChecked={false} />
+          <Checkbox isChecked={false} />
         </div>
       </div>
       <div className="absolute bottom-3 text-xl text-left mt-5 z-10">
