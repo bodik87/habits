@@ -12,7 +12,6 @@ export const Edit = () => {
 
   const { id } = useParams();
   const habit = habits.filter((habit) => habit.id === Number(id))[0];
-  console.log(habit.color);
 
   return (
     <CardLayout
