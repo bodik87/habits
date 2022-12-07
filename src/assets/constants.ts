@@ -13,6 +13,6 @@ export const createConstants = {
   leftBtn: "Cancel",
   rightBtn: "Save",
   habitName: "Name",
-  defaultColor: "myOrange",
+  defaultColor: "mySalad",
   inputNamePlaceholder: "Read a book, Meditate etc.",
 };
