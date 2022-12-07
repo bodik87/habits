@@ -1,4 +1,4 @@
-export const cards = [
+export const habits = [
   { id: 1, title: "Read a book", color: "bg-myBlue", repeat: 20 },
   { id: 2, title: "Lern Something New", color: "bg-myYellow", repeat: 3 },
   { id: 3, title: "Morning 15min Workout", color: "bg-myRed", repeat: 15 },

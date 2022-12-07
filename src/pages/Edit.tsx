@@ -2,11 +2,16 @@ import { useParams } from "react-router-dom";
 import { CardLayout } from "../components/ui/CardLayout";
 import { editConstants } from "../assets/constants";
 import { useState } from "react";
-import { cards } from "../data";
+import { useTypedSelector } from "../components/hooks/useTypedSelector";
+import { useActions } from "../components/hooks/useActions";
+// import { cards } from "../data";
 
 export const Edit = () => {
+  const { deleteHabit } = useActions();
+  const { habits } = useTypedSelector((state) => state.habits);
+
   const { id } = useParams();
-  const habitTitle = cards.filter((card) => card.id === Number(id))[0];
+  const habitTitle = habits.filter((habit) => habit.id === Number(id))[0];
 
   const [habitColor, setHabitColor] = useState(editConstants.defaultColor);
 

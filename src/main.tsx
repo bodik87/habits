@@ -10,6 +10,9 @@ import { Create } from "./pages/Create";
 import "./index.css";
 import { Statistics } from "./pages/Statistics";
 import { Edit } from "./pages/Edit";
+import { Provider } from "react-redux";
+import { persistor, store } from "./store/store";
+import { PersistGate } from "redux-persist/integration/react";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,6 +29,9 @@ const router = createBrowserRouter(
 );
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <RouterProvider router={router} />
-  // <App />
+  <Provider store={store}>
+    <PersistGate persistor={persistor} loading={null}>
+      <RouterProvider router={router} />
+    </PersistGate>
+  </Provider>
 );

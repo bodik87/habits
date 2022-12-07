@@ -2,14 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Checkbox } from "./ui/Checkbox";
 
-interface ICardProps {
+export interface IHabitProps {
   color: string;
   title: string;
   repeat: number;
   id: number;
 }
 
-export const Card = ({ color, title, repeat, id }: ICardProps) => {
+export const Habit = ({ color, title, repeat, id }: IHabitProps) => {
   const [goal, setGoal] = useState(0);
   const [result, setResult] = useState(0);
   const [circleDiameter, setCircleDiameter] = useState(0);
