@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const Unchecked = () => {
   return (
@@ -66,6 +66,7 @@ export const Checkbox = ({ isChecked, day, date }: CheckboxProps) => {
     setChecked(!checked);
     !checked && console.log(checkedDay);
   };
+
   return (
     <div
       className="cursor-pointer flex justify-center items-center"

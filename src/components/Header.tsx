@@ -1,5 +1,3 @@
-import { RefObject, useEffect, useRef, useState } from "react";
-
 const days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
 
 function addLeadingZero(date: number) {
