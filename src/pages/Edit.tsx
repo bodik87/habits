@@ -19,7 +19,7 @@ export const Edit = () => {
     <CardLayout
       rightLinkText={editConstants.rightBtn}
       leftLinkText={editConstants.leftBtn}
-      leftOnClick="/"
+      leftOnClick={`/statistics/${id}`}
       rightOnClick=""
       title={habitTitle.title}
       habitColor={habitColor}

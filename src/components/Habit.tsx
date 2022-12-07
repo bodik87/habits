@@ -21,7 +21,7 @@ export const Habit = ({ color, title, repeat, id }: IHabitProps) => {
   const navigate = useNavigate();
 
   const goToStatistics = (id: number) => {
-    navigate(`/statistics${id}`);
+    navigate(`/statistics/${id}`);
   };
 
   const handleClick = (event: any) => event.stopPropagation();
@@ -52,7 +52,6 @@ export const Habit = ({ color, title, repeat, id }: IHabitProps) => {
     { day: "FRI", date: "04" },
     { day: "SAT", date: "03" },
   ];
-  // to={`pokemon/${pokemon.name}`
 
   return (
     <div
@@ -62,7 +61,7 @@ export const Habit = ({ color, title, repeat, id }: IHabitProps) => {
     >
       <div className="flex items-center h-[10px] mt-[6px] justify-end">
         <div
-          className={`${color} left-8 flex justify-center items-center rounded-full absolute z-0`}
+          className={`bg-${color} left-8 flex justify-center items-center rounded-full absolute z-0`}
           style={{
             width: `${circleDiameter}px`,
             height: `${circleDiameter}px`,
