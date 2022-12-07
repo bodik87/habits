@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const Unchecked = () => {
   return (
@@ -38,46 +38,32 @@ const Checked = () => {
 
 interface CheckboxProps {
   isChecked: boolean;
-  day: string;
   date: string;
   setProgress: (boolean: boolean) => void;
 }
 
-interface ICheckedDay {
-  day: string | undefined;
-  date: string | undefined;
-}
-
-export const Checkbox = ({
-  isChecked,
-  day,
-  date,
-  setProgress,
-}: CheckboxProps) => {
+export const Checkbox = ({ isChecked, date, setProgress }: CheckboxProps) => {
   const [checked, setChecked] = useState(isChecked);
-  const [checkedDay, setCheckedDay] = useState<ICheckedDay>();
+  const [checkedDay, setCheckedDay] = useState<string[]>([]);
 
-  const getCheckedDay = () => {
-    return {
-      date: date,
-      day: day,
-    };
-  };
+  const arr = useMemo(() => {
+    setCheckedDay((prev) => [...prev, date]);
+    return checkedDay;
+  }, [checked]);
 
   useEffect(() => {
-    setCheckedDay(getCheckedDay());
-  }, []);
+    setCheckedDay((prev) => [...prev, date]);
+  }, [checked]);
 
-  const toggleCheck = () => {
+  const toggleCheck = (date: string) => {
     setChecked(!checked);
     setProgress(!checked);
-    !checked && console.log(checkedDay);
   };
 
   return (
     <div
       className="cursor-pointer flex justify-center items-center"
-      onClick={toggleCheck}
+      onClick={() => toggleCheck(date)}
     >
       {checked ? <Checked /> : <Unchecked />}
     </div>

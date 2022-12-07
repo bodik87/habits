@@ -1,3 +1,4 @@
+import { eachDayOfInterval, format, startOfToday, subDays } from "date-fns";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Checkbox } from "./ui/Checkbox";
@@ -6,52 +7,48 @@ export interface IHabitProps {
   color: string;
   title: string;
   repeat: number;
+  checked: number;
   id: number;
 }
 
-export const Habit = ({ color, title, repeat, id }: IHabitProps) => {
-  const [goal, setGoal] = useState(0);
-  const [result, setResult] = useState(0);
+export const Habit = ({ color, title, repeat, checked, id }: IHabitProps) => {
+  const [goal, setGoal] = useState(repeat);
+  const [result, setResult] = useState(checked);
   const [circleDiameter, setCircleDiameter] = useState(0);
   const [percent, setPercent] = useState(0);
   const [cardWidth, setCardWidth] = useState(0);
 
   const cardWidthRef = useRef<any>();
+  const step = Math.ceil((cardWidth * 1.85) / goal);
 
   const navigate = useNavigate();
-
-  const goToStatistics = (id: number) => {
-    navigate(`/statistics/${id}`);
-  };
-
+  const goToStatistics = (id: number) => navigate(`/statistics/${id}`);
   const handleClick = (event: any) => event.stopPropagation();
 
   useEffect(() => {
     setGoal(repeat);
     setCardWidth(cardWidthRef.current.clientWidth);
     setPercent(Math.ceil((result / goal) * 100));
+    setCircleDiameter(step * result);
   }, [result, percent]);
-
-  const step = Math.ceil((cardWidth * 1.85) / goal);
 
   const setProgress = (boolean: boolean) => {
     if (boolean) {
-      setResult((result) => result + 1);
-      setCircleDiameter(circleDiameter + step);
+      setResult(result + 1);
     } else {
-      setResult((result) => result - 1);
-      setCircleDiameter(circleDiameter - step);
+      setResult(result - 1);
     }
   };
 
-  ///
-  const datesRow = [
-    { day: "MON", date: "07" },
-    { day: "TUE", date: "06" },
-    { day: "WED", date: "05" },
-    { day: "FRI", date: "04" },
-    { day: "SAT", date: "03" },
-  ];
+  let daysInterval = eachDayOfInterval({
+    start: subDays(startOfToday(), 4),
+    end: startOfToday(),
+  });
+
+  let datesRow: string[] = [];
+  daysInterval.reverse().forEach((day) => {
+    datesRow.push(format(day, "yyyy-MM-dd"));
+  });
 
   return (
     <div
@@ -76,10 +73,9 @@ export const Habit = ({ color, title, repeat, id }: IHabitProps) => {
         >
           {datesRow.map((date) => (
             <Checkbox
-              key={date.day}
+              key={date}
               isChecked={false}
-              day={date.day}
-              date={date.date}
+              date={date}
               setProgress={setProgress}
             />
           ))}

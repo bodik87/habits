@@ -15,10 +15,12 @@ import {
 } from "date-fns";
 import { useState } from "react";
 
-const meetings = [
-  { startDatetime: "2022-12-07" },
-  { startDatetime: "2022-12-08" },
-  { startDatetime: "2022-12-09" },
+const checkedDays = [
+  "2022-12-07",
+  "2022-12-06",
+  "2022-12-05",
+  "2022-12-04",
+  "2022-12-03",
 ];
 
 let colStartClasses = [
@@ -42,19 +44,6 @@ export default function Calendar() {
     end: endOfMonth(firstDayCurrentMonth),
   });
 
-  /////////////////////////
-  let days2 = eachDayOfInterval({
-    start: subDays(today, 4),
-    end: today,
-  });
-
-  let daysArr: string[] = [];
-  days2.reverse().forEach((day) => {
-    daysArr.push(format(day, "yyyy-MM-dd"));
-  });
-  console.log(daysArr);
-  ////////////////////////
-
   function previousMonth() {
     let firstDayNextMonth = add(firstDayCurrentMonth, { months: -1 });
     setCurrentMonth(format(firstDayNextMonth, "MMM-yyyy"));
@@ -64,10 +53,6 @@ export default function Calendar() {
     let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 });
     setCurrentMonth(format(firstDayNextMonth, "MMM-yyyy"));
   }
-
-  let selectedDayMeetings = meetings.filter((meeting) =>
-    isSameDay(parseISO(meeting.startDatetime), selectedDay)
-  );
 
   return (
     <div className="pt-4 px-8 mx-auto">
@@ -139,7 +124,7 @@ export default function Calendar() {
               dayIdx === 0 && colStartClasses[getDay(day)]
             } mx-auto`}
           >
-            {daysArr.some((meeting) => isSameDay(parseISO(meeting), day)) ? (
+            {checkedDays.some((date) => isSameDay(parseISO(date), day)) ? (
               <div
                 className={`${
                   isToday(day) && "text-red-500 font-semibold"
