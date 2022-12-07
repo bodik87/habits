@@ -11,9 +11,8 @@ export const Edit = () => {
   const { habits } = useTypedSelector((state) => state.habits);
 
   const { id } = useParams();
-  const habitTitle = habits.filter((habit) => habit.id === Number(id))[0];
-
-  const [habitColor, setHabitColor] = useState(editConstants.defaultColor);
+  const habit = habits.filter((habit) => habit.id === Number(id))[0];
+  console.log(habit.color);
 
   return (
     <CardLayout
@@ -21,10 +20,10 @@ export const Edit = () => {
       leftLinkText={editConstants.leftBtn}
       leftOnClick={`/statistics/${id}`}
       rightOnClick=""
-      title={habitTitle.title}
-      habitColor={habitColor}
+      title={habit.title}
+      habitColor={habit.color}
     >
-      <div className={`flex w-full flex-col bg-${habitColor} px-8 pt-8 pb-4`}>
+      <div className={`flex w-full flex-col ${habit.color} px-8 pt-8 pb-4`}>
         <span className="uppercase text-sm">{editConstants.habitName}</span>
         <input
           className="bg-transparent placeholder:text-black/30 text-xl outline-none mt-2"

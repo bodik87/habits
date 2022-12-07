@@ -21,7 +21,6 @@ export const statisticsConstants = {
   leftBtn: "Back",
   rightBtn: "Edit",
   habitName: "Regularity",
-  defaultColor: "myYellow",
   history: "History",
 };
 
@@ -29,6 +28,5 @@ export const editConstants = {
   leftBtn: "Back",
   rightBtn: "Save",
   habitName: "Reglarity",
-  defaultColor: "myYellow",
   history: "History",
 };
