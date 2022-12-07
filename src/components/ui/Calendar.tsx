@@ -4,29 +4,21 @@ import {
   endOfMonth,
   format,
   getDay,
-  isEqual,
+  intervalToDuration,
   isSameDay,
-  isSameMonth,
   isToday,
   parse,
   parseISO,
+  startOfDay,
   startOfToday,
+  subDays,
 } from "date-fns";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 
 const meetings = [
-  {
-    id: 1,
-    name: "Leslie Alexander",
-    startDatetime: "2022-12-07T13:00",
-    endDatetime: "2022-12-07T14:30",
-  },
-  {
-    id: 2,
-    name: "Leslie Alexander",
-    startDatetime: "2022-12-08T13:00",
-    endDatetime: "2022-12-08T14:30",
-  },
+  { startDatetime: "2022-12-07" },
+  { startDatetime: "2022-12-08" },
+  { startDatetime: "2022-12-09" },
 ];
 
 let colStartClasses = [
@@ -49,6 +41,19 @@ export default function Calendar() {
     start: firstDayCurrentMonth,
     end: endOfMonth(firstDayCurrentMonth),
   });
+
+  /////////////////////////
+  let days2 = eachDayOfInterval({
+    start: subDays(today, 4),
+    end: today,
+  });
+
+  let daysArr: string[] = [];
+  days2.reverse().forEach((day) => {
+    daysArr.push(format(day, "yyyy-MM-dd"));
+  });
+  console.log(daysArr);
+  ////////////////////////
 
   function previousMonth() {
     let firstDayNextMonth = add(firstDayCurrentMonth, { months: -1 });
@@ -78,18 +83,18 @@ export default function Calendar() {
             >
               <path
                 d="M2.12133 8.48528L12.0208 18.3848C12.4113 18.7753 12.4113 19.4085 12.0208 19.799L11.3137 20.5061C10.9232 20.8966 10.29 20.8966 9.8995 20.5061L7.62939e-06 10.6066L2.12133 8.48528Z"
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 fill="#050505"
               />
               <path
                 d="M3.8147e-06 10.6066L9.8995 0.707108C10.29 0.316574 10.9232 0.316574 11.3137 0.707108L12.0208 1.41422C12.4113 1.80473 12.4113 2.4379 12.0208 2.82843L2.12132 12.7279L3.8147e-06 10.6066Z"
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 fill="#050505"
               />
             </svg>
           </span>
         </button>
-        <span className="text-xl">
+        <span className="text-xl font-semibold">
           {format(firstDayCurrentMonth, "MMMM yyyy")}
         </span>
         <button onClick={nextMonth} className="opacity-80">
@@ -103,12 +108,12 @@ export default function Calendar() {
             >
               <path
                 d="M19.0919 12.7279L9.19238 2.82841C8.80186 2.43788 8.80186 1.80472 9.19238 1.4142L9.89949 0.707092C10.29 0.316559 10.9232 0.316559 11.3137 0.707092L21.2132 10.6066L19.0919 12.7279Z"
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 fill="#050505"
               />
               <path
                 d="M21.2132 10.6066L11.3137 20.5061C10.9232 20.8966 10.29 20.8966 9.89949 20.5061L9.19239 19.799C8.80186 19.4085 8.80186 18.7753 9.19239 18.3848L19.0919 8.48528L21.2132 10.6066Z"
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 fill="#050505"
               />
             </svg>
@@ -116,7 +121,7 @@ export default function Calendar() {
         </button>
       </div>
 
-      <div className="grid grid-cols-7 mt-4 text-xs font-semibold text-center">
+      <div className="grid grid-cols-7 mt-5 text-xs font-semibold text-center">
         <div>MON</div>
         <div>TUE</div>
         <div>WED</div>
@@ -134,9 +139,7 @@ export default function Calendar() {
               dayIdx === 0 && colStartClasses[getDay(day)]
             } mx-auto`}
           >
-            {meetings.some((meeting) =>
-              isSameDay(parseISO(meeting.startDatetime), day)
-            ) ? (
+            {daysArr.some((meeting) => isSameDay(parseISO(meeting), day)) ? (
               <div
                 className={`${
                   isToday(day) && "text-red-500 font-semibold"
