@@ -13,8 +13,8 @@ export const Statistics = () => {
     <CardLayout
       rightLinkText={statisticsConstants.rightBtn}
       leftLinkText={statisticsConstants.leftBtn}
-      leftOnClick="/"
-      rightOnClick={`/edit/${id}`}
+      leftLinkPath="/"
+      rightLinkPath={`/edit/${id}`}
       title={
         habit.title.length > 28 ? habit.title.slice(0, 28) + "..." : habit.title
       }

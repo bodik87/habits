@@ -9,8 +9,8 @@ export const Create = () => {
     <CardLayout
       rightLinkText={createConstants.rightBtn}
       leftLinkText={createConstants.leftBtn}
-      leftOnClick="/"
-      rightOnClick=""
+      leftLinkPath="/"
+      rightLinkPath=""
       title={createConstants.title}
       habitColor={`bg-${habitColor}`}
     >
