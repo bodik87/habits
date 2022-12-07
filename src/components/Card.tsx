@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Checkbox } from "./ui/Checkbox";
 
 interface ICardProps {
   color: string;
   title: string;
   repeat: number;
+  id: number;
 }
 
-export const Card = ({ color, title, repeat }: ICardProps) => {
+export const Card = ({ color, title, repeat, id }: ICardProps) => {
   const [goal, setGoal] = useState(0);
   const [result, setResult] = useState(0);
   const [circleDiameter, setCircleDiameter] = useState(0);
@@ -15,6 +17,14 @@ export const Card = ({ color, title, repeat }: ICardProps) => {
   const [cardWidth, setCardWidth] = useState(0);
 
   const cardWidthRef = useRef<any>();
+
+  const navigate = useNavigate();
+
+  const goToStatistics = (id: number) => {
+    navigate(`/${id}`);
+  };
+
+  const handleClick = (event: any) => event.stopPropagation();
 
   useEffect(() => {
     setGoal(repeat);
@@ -47,9 +57,13 @@ export const Card = ({ color, title, repeat }: ICardProps) => {
   return (
     <div
       ref={cardWidthRef}
+      onClick={() => goToStatistics(id)}
       className="h-24 bg-myWhite py-4 px-3 rounded-xl relative overflow-hidden"
     >
-      <div className="flex items-center h-[10px] mt-[6px] justify-end">
+      <div
+        onClick={handleClick}
+        className="flex items-center h-[10px] mt-[6px] justify-end"
+      >
         <div
           className={`${color} left-8 flex justify-center items-center rounded-full absolute z-0`}
           style={{
@@ -72,7 +86,7 @@ export const Card = ({ color, title, repeat }: ICardProps) => {
         </div>
       </div>
       <div className="absolute bottom-3 text-xl text-left mt-5 z-10">
-        {title}
+        {title.length > 35 ? title.slice(0, 35) + "..." : title}
       </div>
     </div>
   );

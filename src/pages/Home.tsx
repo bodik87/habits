@@ -10,6 +10,7 @@ export const Home = () => {
         {cards.map((card) => (
           <Card
             key={card.id}
+            id={card.id}
             title={card.title}
             color={card.color}
             repeat={card.repeat}

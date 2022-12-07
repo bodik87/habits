@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { CardLayout } from "../components/ui/CardLayout";
 import { createConstants } from "../assets/constants";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export const CreateHabit = () => {
   // const navigate = useNavigate();

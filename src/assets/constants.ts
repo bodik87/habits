@@ -16,3 +16,12 @@ export const createConstants = {
   defaultColor: "mySalad",
   inputNamePlaceholder: "Read a book, Meditate etc.",
 };
+
+export const statisticsConstants = {
+  // title: "Habit",
+  leftBtn: "Back",
+  rightBtn: "Edit",
+  habitName: "Reglarity",
+  defaultColor: "myYellow",
+  history: "History",
+};
