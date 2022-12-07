@@ -31,6 +31,15 @@ export const Card = ({ color, title, repeat }: ICardProps) => {
     }
   };
 
+  ///
+  const datesRow = [
+    { day: "MON", date: "07" },
+    { day: "TUE", date: "06" },
+    { day: "WED", date: "05" },
+    { day: "FRI", date: "04" },
+    { day: "SAT", date: "03" },
+  ];
+
   return (
     <div
       ref={cardWidthRef}
@@ -48,11 +57,14 @@ export const Card = ({ color, title, repeat }: ICardProps) => {
         ></div>
         <span className="font-semibold absolute left-5">{percent}%</span>
         <div className="flex w-[12rem] justify-between items-center z-10">
-          <Checkbox isChecked={false} />
-          <Checkbox isChecked={false} />
-          <Checkbox isChecked={false} />
-          <Checkbox isChecked={false} />
-          <Checkbox isChecked={false} />
+          {datesRow.map((date) => (
+            <Checkbox
+              key={date.day}
+              isChecked={false}
+              day={date.day}
+              date={date.date}
+            />
+          ))}
         </div>
       </div>
       <div className="absolute bottom-3 text-xl text-left mt-5 z-10">
