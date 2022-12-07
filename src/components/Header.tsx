@@ -35,8 +35,8 @@ interface DateGroupProps {
 const DateGroup = ({ day, date }: DateGroupProps) => {
   return (
     <div className="flex flex-col items-center">
-      <div className="text-[0.9rem] font-medium leading-none">{date}</div>
-      <div className="text-[0.7rem] font-medium leading-none">{day}</div>
+      <div className="font-medium leading-none">{date}</div>
+      <div className="text-[0.8rem] font-medium leading-none">{day}</div>
     </div>
   );
 };

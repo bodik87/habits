@@ -21,13 +21,13 @@ export const CardLayout = ({
   return (
     <>
       <div
-        className={`sticky max-w-[43rem] mx-auto bg-${habitColor} backdrop-blur-md top-0 h-14 z-20 px-8  flex justify-between items-center border-b border-black/10`}
+        className={`sticky max-w-[43rem] mx-auto bg-${habitColor} backdrop-blur-md top-0 h-20 z-20 px-8  flex justify-between items-center border-b border-black/10`}
       >
-        <Link className="text-sm" to={leftOnClick}>
+        <Link className="font-semibold" to={leftOnClick}>
           {leftLinkText}
         </Link>
-        <div>{title}</div>
-        <Link className="text-sm" to="">
+        <div className="text-xl font-semibold">{title}</div>
+        <Link className="font-semibold" to="">
           {rightLinkText}
         </Link>
       </div>

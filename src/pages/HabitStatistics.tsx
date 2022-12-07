@@ -14,8 +14,8 @@ export const HabitStatistics = () => {
       leftLinkText={statisticsConstants.leftBtn}
       leftOnClick="/"
       title={
-        habitTitle.title.length > 30
-          ? habitTitle.title.slice(0, 30) + "..."
+        habitTitle.title.length > 28
+          ? habitTitle.title.slice(0, 28) + "..."
           : habitTitle.title
       }
       habitColor={statisticsConstants.defaultColor}

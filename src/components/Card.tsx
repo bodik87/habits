@@ -58,12 +58,9 @@ export const Card = ({ color, title, repeat, id }: ICardProps) => {
     <div
       ref={cardWidthRef}
       onClick={() => goToStatistics(id)}
-      className="h-24 bg-myWhite py-4 px-3 rounded-xl relative overflow-hidden"
+      className="h-28 bg-myWhite py-5 px-4 rounded-xl relative overflow-hidden"
     >
-      <div
-        onClick={handleClick}
-        className="flex items-center h-[10px] mt-[6px] justify-end"
-      >
+      <div className="flex items-center h-[10px] mt-[6px] justify-end">
         <div
           className={`${color} left-8 flex justify-center items-center rounded-full absolute z-0`}
           style={{
@@ -73,7 +70,11 @@ export const Card = ({ color, title, repeat, id }: ICardProps) => {
           }}
         ></div>
         <span className="font-semibold absolute left-5">{percent}%</span>
-        <div className="flex w-[12rem] justify-between items-center z-10">
+
+        <div
+          onClick={handleClick}
+          className="flex w-[12rem] justify-between items-center z-10"
+        >
           {datesRow.map((date) => (
             <Checkbox
               key={date.day}
@@ -85,8 +86,8 @@ export const Card = ({ color, title, repeat, id }: ICardProps) => {
           ))}
         </div>
       </div>
-      <div className="absolute bottom-3 text-xl text-left mt-5 z-10">
-        {title.length > 35 ? title.slice(0, 35) + "..." : title}
+      <div className="absolute bottom-4 text-xl text-left z-10">
+        {title.length > 40 ? title.slice(0, 40) + "..." : title}
       </div>
     </div>
   );
