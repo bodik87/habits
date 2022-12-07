@@ -1,12 +1,8 @@
-import { useNavigate } from "react-router-dom";
 import { CardLayout } from "../components/ui/CardLayout";
 import { createConstants } from "../assets/constants";
 import { useState } from "react";
 
 export const Create = () => {
-  // const navigate = useNavigate();
-  // const goBack = () => navigate(-1);
-
   const [habitColor, setHabitColor] = useState(createConstants.defaultColor);
 
   return (

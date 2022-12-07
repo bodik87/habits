@@ -1,17 +1,22 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { CardLayout } from "../components/ui/CardLayout";
 import { editConstants } from "../assets/constants";
-import { useState } from "react";
 import { useTypedSelector } from "../components/hooks/useTypedSelector";
 import { useActions } from "../components/hooks/useActions";
-// import { cards } from "../data";
 
 export const Edit = () => {
   const { deleteHabit } = useActions();
   const { habits } = useTypedSelector((state) => state.habits);
+  const navigate = useNavigate();
+  const goHome = () => navigate("/");
 
   const { id } = useParams();
   const habit = habits.filter((habit) => habit.id === Number(id))[0];
+
+  const handleClick = (id: any) => {
+    deleteHabit(Number(id));
+    goHome();
+  };
 
   return (
     <CardLayout
@@ -26,8 +31,10 @@ export const Edit = () => {
         <span className="uppercase text-sm">{editConstants.habitName}</span>
         <input
           className="bg-transparent placeholder:text-black/30 text-xl outline-none mt-2"
-          // placeholder={editConstants.inputNamePlaceholder}
+          placeholder="hello"
         />
+
+        <button onClick={() => handleClick(id)}>Delete</button>
       </div>
     </CardLayout>
   );

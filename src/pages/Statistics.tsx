@@ -1,10 +1,8 @@
 import { useParams } from "react-router-dom";
 import { statisticsConstants } from "../assets/constants";
-import Calendar from "../components/ui/Calendar";
 import { CardLayout } from "../components/ui/CardLayout";
 import { useTypedSelector } from "../components/hooks/useTypedSelector";
-
-// import { cards } from "../data";
+import Calendar from "../components/ui/Calendar";
 
 export const Statistics = () => {
   const { id } = useParams();
