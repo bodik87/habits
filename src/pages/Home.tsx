@@ -3,7 +3,7 @@ import { Header } from "../components/Header";
 import { useTypedSelector } from "../components/hooks/useTypedSelector";
 
 export const Home = () => {
-  const habits = useTypedSelector((state) => state.habits.habits);
+  const { habits } = useTypedSelector((state) => state.habits);
 
   return (
     <>
