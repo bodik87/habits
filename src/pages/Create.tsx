@@ -4,8 +4,8 @@ import { createConstants } from "../assets/constants";
 import { useState } from "react";
 
 export const Create = () => {
-  // const navigate = useNavigate();
-  // const goBack = () => navigate(-1);
+  const navigate = useNavigate();
+  const goBack = () => navigate(-1);
   const [habitColor, setHabitColor] = useState(createConstants.defaultColor);
 
   return (
@@ -13,6 +13,7 @@ export const Create = () => {
       rightLinkText={createConstants.rightBtn}
       leftLinkText={createConstants.leftBtn}
       leftOnClick="/"
+      rightOnClick=""
       title={createConstants.title}
       habitColor={habitColor}
     >

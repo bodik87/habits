@@ -19,7 +19,7 @@ const router = createBrowserRouter(
       // errorElement={<Error />}
     >
       <Route element={<Create />} path="/create" />
-      <Route element={<Statistics />} path="/:id" />
+      <Route element={<Statistics />} path="/statistics:id" />
       <Route element={<Edit />} path="/edit:id" />
     </Route>
   )

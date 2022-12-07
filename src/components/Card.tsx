@@ -21,7 +21,7 @@ export const Card = ({ color, title, repeat, id }: ICardProps) => {
   const navigate = useNavigate();
 
   const goToStatistics = (id: number) => {
-    navigate(`/${id}`);
+    navigate(`/statistics${id}`);
   };
 
   const handleClick = (event: any) => event.stopPropagation();

@@ -18,9 +18,16 @@ export const createConstants = {
 };
 
 export const statisticsConstants = {
-  // title: "Habit",
   leftBtn: "Back",
   rightBtn: "Edit",
+  habitName: "Regularity",
+  defaultColor: "myYellow",
+  history: "History",
+};
+
+export const editConstants = {
+  leftBtn: "Back",
+  rightBtn: "Save",
   habitName: "Reglarity",
   defaultColor: "myYellow",
   history: "History",
