@@ -7,3 +7,12 @@ export const bgCardColors = {
   violet: "bg-myViolet",
   green: "bg-myGreen",
 };
+
+export const createConstants = {
+  title: "Create a Habit",
+  leftBtn: "Cancel",
+  rightBtn: "Save",
+  habitName: "Name",
+  defaultColor: "myOrange",
+  inputNamePlaceholder: "Read a book, Meditate etc.",
+};

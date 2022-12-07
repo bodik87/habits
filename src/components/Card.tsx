@@ -39,6 +39,7 @@ export const Card = ({ color, title, repeat }: ICardProps) => {
     { day: "FRI", date: "04" },
     { day: "SAT", date: "03" },
   ];
+  // to={`pokemon/${pokemon.name}`
 
   return (
     <div

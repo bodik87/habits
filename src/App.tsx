@@ -1,22 +1,12 @@
-import { Card } from "./components/Card";
-import { Header } from "./components/Header";
+import { Outlet, useLocation } from "react-router-dom";
 import { Navigation } from "./components/Navigation";
-import { cards } from "./data";
+import { Home } from "./pages/Home";
 
 function App() {
+  const location = useLocation();
   return (
     <>
-      <Header />
-      <div className="w-full px-4 pb-20 max-w-[38rem] mx-auto flex flex-col gap-4">
-        {cards.map((card) => (
-          <Card
-            key={card.id}
-            title={card.title}
-            color={card.color}
-            repeat={card.repeat}
-          />
-        ))}
-      </div>
+      {location.pathname === "/" ? <Home /> : <Outlet />}
       <Navigation />
     </>
   );

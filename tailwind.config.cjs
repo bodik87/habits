@@ -8,6 +8,7 @@ module.exports = {
         myGreen: "#55F2A1",
         mySalad: "#daeb69",
         myYellow: "#FEE36E",
+        myOrange: "#FFAF7A",
         myPink: "#FC98B4",
         myViolet: "#8A78EE",
         myBlue: "#53D0F0",
