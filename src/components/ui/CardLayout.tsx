@@ -6,6 +6,7 @@ interface CardLayoutProps {
   leftLinkText: string;
   leftOnClick: string;
   rightLinkText: string;
+  rightOnClick: string;
   title: string;
   habitColor: string;
 }
@@ -15,6 +16,7 @@ export const CardLayout = ({
   leftLinkText,
   leftOnClick,
   rightLinkText,
+  rightOnClick,
   title,
   habitColor,
 }: CardLayoutProps) => {
@@ -27,7 +29,7 @@ export const CardLayout = ({
           {leftLinkText}
         </Link>
         <div className="text-xl font-semibold">{title}</div>
-        <Link className="font-semibold" to="">
+        <Link className="font-semibold" to={rightOnClick}>
           {rightLinkText}
         </Link>
       </div>

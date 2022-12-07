@@ -13,6 +13,7 @@ export const Statistics = () => {
       rightLinkText={statisticsConstants.rightBtn}
       leftLinkText={statisticsConstants.leftBtn}
       leftOnClick="/"
+      rightOnClick={`/edit${id}`}
       title={
         habitTitle.title.length > 28
           ? habitTitle.title.slice(0, 28) + "..."

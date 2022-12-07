@@ -1,11 +1,13 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { CardLayout } from "../components/ui/CardLayout";
 import { createConstants } from "../assets/constants";
 import { useState } from "react";
+import { cards } from "../data";
 
 export const Edit = () => {
-  // const navigate = useNavigate();
-  // const goBack = () => navigate(-1);
+  const { id } = useParams();
+
+  const habitTitle = cards.filter((card) => card.id === Number(id))[0];
   const [habitColor, setHabitColor] = useState(createConstants.defaultColor);
 
   return (
@@ -13,7 +15,8 @@ export const Edit = () => {
       rightLinkText={createConstants.rightBtn}
       leftLinkText={createConstants.leftBtn}
       leftOnClick="/"
-      title={createConstants.title}
+      rightOnClick=""
+      title={habitTitle.title}
       habitColor={habitColor}
     >
       <div className={`flex w-full flex-col bg-${habitColor} px-8 pt-8 pb-4`}>

@@ -9,6 +9,7 @@ import App from "./App";
 import { Create } from "./pages/Create";
 import "./index.css";
 import { Statistics } from "./pages/Statistics";
+import { Edit } from "./pages/Edit";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +20,7 @@ const router = createBrowserRouter(
     >
       <Route element={<Create />} path="/create" />
       <Route element={<Statistics />} path="/:id" />
+      <Route element={<Edit />} path="/edit:id" />
     </Route>
   )
 );
