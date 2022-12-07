@@ -57,7 +57,7 @@ export const Habit = ({ color, title, repeat, id }: IHabitProps) => {
     <div
       ref={cardWidthRef}
       onClick={() => goToStatistics(id)}
-      className="h-28 bg-myWhite py-5 px-4 rounded-xl relative overflow-hidden"
+      className={`h-28 bg-myWhite py-5 px-4 rounded-xl relative overflow-hidden`}
     >
       <div className="flex items-center h-[10px] mt-[6px] justify-end">
         <div

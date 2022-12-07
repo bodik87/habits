@@ -12,6 +12,7 @@ module.exports = {
         myPink: "#FC98B4",
         myViolet: "#8A78EE",
         myBlue: "#53D0F0",
+        "myBlue/10": "#5380F0",
         myWhite: "#F8F8F8",
         myDark: "#050505",
       },
