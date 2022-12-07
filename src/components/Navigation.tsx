@@ -27,6 +27,7 @@ export const Navigation = () => {
     <div className="fixed w-full left-0 right-0 bg-white/60 border-t-2 backdrop-blur-md bottom-0 h-14 z-20">
       <div className="flex justify-between items-center max-w-[43rem] mx-auto h-14 px-8 md:px-[4.5rem]">
         <Burger />
+        <div onClick={() => localStorage.clear()}>RESTORE TEST APP</div>
         <Plus />
         {/* {location.pathname === "create" && <Plus />} */}
       </div>
