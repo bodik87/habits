@@ -73,7 +73,7 @@ export const Card = ({ color, title, repeat, id }: ICardProps) => {
 
         <div
           onClick={handleClick}
-          className="flex w-[12rem] justify-between items-center z-10"
+          className="flex w-[13rem] justify-between items-center z-10"
         >
           {datesRow.map((date) => (
             <Checkbox
