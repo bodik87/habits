@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { CardLayout } from "../components/ui/CardLayout";
 import { createConstants } from "../assets/constants";
 import { useState } from "react";
@@ -6,8 +6,8 @@ import { cards } from "../data";
 
 export const Edit = () => {
   const { id } = useParams();
-
   const habitTitle = cards.filter((card) => card.id === Number(id))[0];
+
   const [habitColor, setHabitColor] = useState(createConstants.defaultColor);
 
   return (
