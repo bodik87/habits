@@ -23,10 +23,14 @@ export const Card = ({ color, title, repeat }: ICardProps) => {
 
   const step = Math.ceil((cardWidth * 1.85) / goal);
 
-  const setProgress = () => {
-    if (percent !== 100) {
+  const setProgress = (boolean: boolean) => {
+    if (boolean) {
       setResult(result + 1);
       setCircleDiameter(circleDiameter + step);
+      setPercent(Math.ceil((result / goal) * 100));
+    } else {
+      setResult(result - 1);
+      setCircleDiameter(circleDiameter - step);
       setPercent(Math.ceil((result / goal) * 100));
     }
   };
@@ -44,7 +48,6 @@ export const Card = ({ color, title, repeat }: ICardProps) => {
   return (
     <div
       ref={cardWidthRef}
-      // onClick={setProgress}
       className="h-24 bg-myWhite py-4 px-3 rounded-xl relative overflow-hidden"
     >
       <div className="flex items-center h-[10px] mt-[6px] justify-end">
@@ -64,6 +67,7 @@ export const Card = ({ color, title, repeat }: ICardProps) => {
               isChecked={false}
               day={date.day}
               date={date.date}
+              setProgress={setProgress}
             />
           ))}
         </div>

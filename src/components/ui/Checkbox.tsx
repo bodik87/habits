@@ -40,6 +40,7 @@ interface CheckboxProps {
   isChecked: boolean;
   day: string;
   date: string;
+  setProgress: (boolean: boolean) => void;
 }
 
 interface ICheckedDay {
@@ -47,7 +48,12 @@ interface ICheckedDay {
   date: string | undefined;
 }
 
-export const Checkbox = ({ isChecked, day, date }: CheckboxProps) => {
+export const Checkbox = ({
+  isChecked,
+  day,
+  date,
+  setProgress,
+}: CheckboxProps) => {
   const [checked, setChecked] = useState(isChecked);
   const [checkedDay, setCheckedDay] = useState<ICheckedDay>();
 
@@ -64,6 +70,7 @@ export const Checkbox = ({ isChecked, day, date }: CheckboxProps) => {
 
   const toggleCheck = () => {
     setChecked(!checked);
+    setProgress(!checked);
     !checked && console.log(checkedDay);
   };
 
