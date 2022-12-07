@@ -21,9 +21,9 @@ export const Edit = () => {
       leftOnClick={`/statistics/${id}`}
       rightOnClick=""
       title={habit.title}
-      habitColor={habit.color}
+      habitColor={`bg-${habit.color}`}
     >
-      <div className={`flex w-full flex-col ${habit.color} px-8 pt-8 pb-4`}>
+      <div className={`flex w-full flex-col bg-${habit.color} px-8 pt-8 pb-4`}>
         <span className="uppercase text-sm">{editConstants.habitName}</span>
         <input
           className="bg-transparent placeholder:text-black/30 text-xl outline-none mt-2"

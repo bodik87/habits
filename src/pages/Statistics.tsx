@@ -9,10 +9,7 @@ import { useTypedSelector } from "../components/hooks/useTypedSelector";
 export const Statistics = () => {
   const { id } = useParams();
   const { habits } = useTypedSelector((state) => state.habits);
-
   const habit = habits.filter((habit) => habit.id === Number(id))[0];
-
-  console.log(habit.color);
 
   return (
     <CardLayout
@@ -23,9 +20,9 @@ export const Statistics = () => {
       title={
         habit.title.length > 28 ? habit.title.slice(0, 28) + "..." : habit.title
       }
-      habitColor={habit.color}
+      habitColor={`bg-${habit.color}`}
     >
-      <div className={`flex w-full flex-col ${habit.color} px-8 pt-8 pb-4`}>
+      <div className={`flex w-full flex-col bg-${habit.color} px-8 pt-8 pb-4`}>
         <span className="uppercase text-sm">
           {statisticsConstants.habitName}
         </span>
