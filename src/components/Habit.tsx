@@ -1,6 +1,7 @@
 import { eachDayOfInterval, format, startOfToday, subDays } from "date-fns";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTypedSelector } from "./hooks/useTypedSelector";
 import { Checkbox } from "./ui/Checkbox";
 
 export interface IHabitProps {
@@ -8,10 +9,18 @@ export interface IHabitProps {
   title: string;
   repeat: number;
   checked: number;
+  checkedDays: string[];
   id: number;
 }
 
-export const Habit = ({ color, title, repeat, checked, id }: IHabitProps) => {
+export const Habit = ({
+  color,
+  title,
+  repeat,
+  checked,
+  checkedDays,
+  id,
+}: IHabitProps) => {
   const [goal, setGoal] = useState(repeat);
   const [result, setResult] = useState(checked);
   const [circleDiameter, setCircleDiameter] = useState(0);
@@ -50,6 +59,8 @@ export const Habit = ({ color, title, repeat, checked, id }: IHabitProps) => {
     datesRow.push(format(day, "yyyy-MM-dd"));
   });
 
+  const { habits } = useTypedSelector((state) => state.habits);
+  const habit = habits.filter((habit) => habit.id === Number(id))[0];
   return (
     <div
       ref={cardWidthRef}
@@ -74,7 +85,7 @@ export const Habit = ({ color, title, repeat, checked, id }: IHabitProps) => {
           {datesRow.map((date) => (
             <Checkbox
               key={date}
-              isChecked={false}
+              isChecked={habit.checkedDays.some((day) => day == date)}
               date={date}
               setProgress={setProgress}
             />
