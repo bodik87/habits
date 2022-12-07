@@ -4,7 +4,7 @@ import Calendar from "../components/ui/Calendar";
 import { CardLayout } from "../components/ui/CardLayout";
 import { cards } from "../data";
 
-export const HabitStatistics = () => {
+export const Statistics = () => {
   const { id } = useParams();
   const habitTitle = cards.filter((card) => card.id === Number(id))[0];
 

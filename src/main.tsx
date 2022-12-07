@@ -6,9 +6,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import App from "./App";
-import { CreateHabit } from "./pages/CreateHabit";
+import { Create } from "./pages/Create";
 import "./index.css";
-import { HabitStatistics } from "./pages/HabitStatistics";
+import { Statistics } from "./pages/Statistics";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -17,8 +17,8 @@ const router = createBrowserRouter(
       path="/"
       // errorElement={<Error />}
     >
-      <Route element={<CreateHabit />} path="/create" />
-      <Route element={<HabitStatistics />} path="/:id" />
+      <Route element={<Create />} path="/create" />
+      <Route element={<Statistics />} path="/:id" />
     </Route>
   )
 );
