@@ -19,19 +19,18 @@ export const Card = ({ color, title, repeat }: ICardProps) => {
   useEffect(() => {
     setGoal(repeat);
     setCardWidth(cardWidthRef.current.clientWidth);
-  }, []);
+    setPercent(Math.ceil((result / goal) * 100));
+  }, [result, percent]);
 
   const step = Math.ceil((cardWidth * 1.85) / goal);
 
   const setProgress = (boolean: boolean) => {
     if (boolean) {
-      setResult(result + 1);
+      setResult((result) => result + 1);
       setCircleDiameter(circleDiameter + step);
-      setPercent(Math.ceil((result / goal) * 100));
     } else {
-      setResult(result - 1);
+      setResult((result) => result - 1);
       setCircleDiameter(circleDiameter - step);
-      setPercent(Math.ceil((result / goal) * 100));
     }
   };
 
