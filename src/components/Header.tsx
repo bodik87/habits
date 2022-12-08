@@ -12,7 +12,7 @@ let daysInterval = eachDayOfInterval({
 
 let datesRow: any = [];
 daysInterval.reverse().forEach((day) => {
-  datesRow.push(format(day, "MM-ee"));
+  datesRow.push(format(day, "MM-ee").toString());
 });
 
 const DateGroup = ({ day, date }: DateGroupProps) => {
