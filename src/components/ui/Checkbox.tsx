@@ -44,18 +44,8 @@ interface CheckboxProps {
 
 export const Checkbox = ({ isChecked, date, setProgress }: CheckboxProps) => {
   const [checked, setChecked] = useState(isChecked);
-  const [checkedDay, setCheckedDay] = useState<string[]>([]);
 
-  const arr = useMemo(() => {
-    setCheckedDay((prev) => [...prev, date]);
-    return checkedDay;
-  }, [checked]);
-
-  useEffect(() => {
-    setCheckedDay((prev) => [...prev, date]);
-  }, [checked]);
-
-  const toggleCheck = (date: string) => {
+  const toggleCheck = () => {
     setChecked(!checked);
     setProgress(!checked);
   };
@@ -63,7 +53,7 @@ export const Checkbox = ({ isChecked, date, setProgress }: CheckboxProps) => {
   return (
     <div
       className="cursor-pointer flex justify-center items-center"
-      onClick={() => toggleCheck(date)}
+      onClick={toggleCheck}
     >
       {checked ? <Checked /> : <Unchecked />}
     </div>

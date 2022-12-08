@@ -1,36 +1,19 @@
-const days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
-
-function addLeadingZero(date: number) {
-  return date < 10 ? "0" + date : date;
-}
-
-let today_index = (6 + new Date().getDay()) % 7;
-days[today_index] = `${days[today_index]} `;
-// console.log(days.sort((a, b) => (a > b ? -1 : 1)));
-
-function getUserTime(time: any, index: number) {
-  // let Y = time.getFullYear();
-  // let M = addLeadingZero(time.getMonth() + 1);
-  let date = addLeadingZero(time.getDate() - index);
-  let day = days[time.getDay() - index];
-  return { day, date };
-}
-
-///
-const datesRow = [
-  { day: "MON", date: "07" },
-  { day: "TUE", date: "06" },
-  { day: "WED", date: "05" },
-  { day: "FRI", date: "04" },
-  { day: "SAT", date: "03" },
-];
-
-///////////////////////////////////////
+import { eachDayOfInterval, format, startOfToday, subDays } from "date-fns";
 
 interface DateGroupProps {
   day: string;
-  date: any;
+  date: string;
 }
+
+let daysInterval = eachDayOfInterval({
+  start: subDays(startOfToday(), 4),
+  end: startOfToday(),
+});
+
+let datesRow: string[] = [];
+daysInterval.reverse().forEach((day) => {
+  datesRow.push(format(day, "MM-ee"));
+});
 
 const DateGroup = ({ day, date }: DateGroupProps) => {
   return (
@@ -47,7 +30,7 @@ export const Header = () => {
       <p className=" font-medium text-3xl">Habit</p>
       <div className="flex w-[13rem] justify-between">
         {datesRow.map((date) => (
-          <DateGroup key={date.day} day={date.day} date={date.date} />
+          <DateGroup key={date} day={date.split(0, 2)} date={date.split(-2)} />
         ))}
       </div>
     </div>
