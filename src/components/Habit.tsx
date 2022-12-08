@@ -1,45 +1,37 @@
 import { eachDayOfInterval, format, startOfToday, subDays } from "date-fns";
-import { useEffect, useRef, useState } from "react";
+import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { IHabitProps } from "../types";
+import { useActions } from "./hooks/useActions";
 import { useTypedSelector } from "./hooks/useTypedSelector";
 import { Checkbox } from "./ui/Checkbox";
-
-export interface IHabitProps {
-  color: string;
-  title: string;
-  repeat: number;
-  checked: number;
-  checkedDays: string[];
-  id: number;
-}
 
 export const Habit = ({
   color,
   title,
   repeat,
-  checked,
   checkedDays,
   id,
 }: IHabitProps) => {
-  const [goal, setGoal] = useState(repeat);
-  const [result, setResult] = useState(checked);
-  const [circleDiameter, setCircleDiameter] = useState(0);
-  const [percent, setPercent] = useState(0);
-  const [cardWidth, setCardWidth] = useState(0);
-
-  const cardWidthRef = useRef<any>();
-  const step = Math.ceil((cardWidth * 1.85) / goal);
-
   const navigate = useNavigate();
   const goToStatistics = (id: number) => navigate(`/statistics/${id}`);
   const handleClick = (event: any) => event.stopPropagation();
 
+  const [goal, setGoal] = useState(0);
+  const [result, setResult] = useState(0);
+  const [percent, setPercent] = useState(0);
+  const [cardWidth, setCardWidth] = useState(0);
+  const [circleDiameter, setCircleDiameter] = useState(0);
+  const cardWidthRef = useRef<any>();
+  const step = Math.ceil((cardWidth * 1.85) / goal);
+
   useEffect(() => {
     setGoal(repeat);
-    setCardWidth(cardWidthRef.current.clientWidth);
+    setResult(checkedDays.length);
     setPercent(Math.ceil((result / goal) * 100));
+    setCardWidth(cardWidthRef.current.clientWidth);
     setCircleDiameter(step * result);
-  }, [result, percent]);
+  }, [result]);
 
   const setProgress = (boolean: boolean) => {
     if (boolean) {
@@ -69,7 +61,7 @@ export const Habit = ({
     >
       <div className="flex items-center h-[10px] mt-[6px] justify-end">
         <div
-          className={`bg-${color} left-8 flex justify-center items-center rounded-full absolute z-0`}
+          className={`bg-${color} left-8 flex justify-center items-center rounded-full absolute z-0 transition-all duration-300`}
           style={{
             width: `${circleDiameter}px`,
             height: `${circleDiameter}px`,
@@ -82,19 +74,52 @@ export const Habit = ({
           onClick={handleClick}
           className="flex w-[13rem] justify-between items-center z-10"
         >
-          {datesRow.map((date) => (
+          {/* {datesRow.map((date) => (
             <Checkbox
               key={date}
               isChecked={habit.checkedDays.some((day) => day == date)}
               date={date}
               setProgress={setProgress}
             />
-          ))}
+          ))} */}
+          <CheckRow dates={datesRow} />
         </div>
       </div>
       <div className="absolute bottom-4 text-xl text-left z-10">
         {title.length > 40 ? title.slice(0, 40) + "..." : title}
       </div>
+    </div>
+  );
+};
+
+interface CheckRowProps {
+  dates: string[];
+}
+const CheckRow = ({ dates }: CheckRowProps) => {
+  const { arr } = useTypedSelector((state) => state.habits);
+  const { pushToArr } = useActions();
+  const [value, setValue] = useState<String>("");
+
+  useEffect(() => {}, []);
+
+  const clickHandler = useCallback((e: any) => {
+    setValue(e.target.value);
+    pushToArr(value);
+  };) 
+
+  console.log(arr);
+
+  return (
+    <div className="flex gap-1 text-sm">
+      {dates.map((item) => (
+        <input
+          key={item}
+          className="bg-myGreen p-1 cursor-pointer"
+          type="checkbox"
+          value={item}
+          onChange={clickHandler}
+        />
+      ))}
     </div>
   );
 };
