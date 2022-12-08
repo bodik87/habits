@@ -1,13 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IHabitProps } from "../components/Habit";
 import { habits } from "../data";
+import { IHabitProps } from "../types";
 
 interface IInitialState {
   habits: IHabitProps[];
+  arr: any;
 }
 
 const initialState: IInitialState = {
   habits: habits,
+  arr: ["777"],
 };
 
 export const habitsSlice = createSlice({
@@ -22,6 +24,9 @@ export const habitsSlice = createSlice({
       state.habits = state.habits.filter(
         (habit) => habit.id !== action.payload
       );
+    },
+    pushToArr: (state, action: PayloadAction<String>) => {
+      state.arr.push(action.payload);
     },
   },
 });

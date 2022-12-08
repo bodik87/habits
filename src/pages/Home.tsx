@@ -17,7 +17,7 @@ export const Home = () => {
               title={habit.title}
               color={habit.color}
               repeat={habit.repeat}
-              checked={habit.checked}
+              checkedDays={habit.checkedDays}
             />
           ))
         ) : (
