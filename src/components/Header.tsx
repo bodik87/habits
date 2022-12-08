@@ -10,7 +10,7 @@ let daysInterval = eachDayOfInterval({
   end: startOfToday(),
 });
 
-let datesRow: string[] = [];
+let datesRow: any = [];
 daysInterval.reverse().forEach((day) => {
   datesRow.push(format(day, "MM-ee"));
 });
