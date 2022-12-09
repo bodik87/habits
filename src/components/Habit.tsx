@@ -46,7 +46,7 @@ export const Habit = ({
   });
 
   let datesRow: string[] = [];
-  daysInterval.reverse().forEach((day) => {
+  daysInterval.forEach((day) => {
     datesRow.push(format(day, "yyyy-MM-dd"));
   });
 
@@ -81,7 +81,6 @@ export const Habit = ({
               isChecked={habit.checkedDays.some((day) => day == date)}
               date={date}
               setProgress={setProgress}
-              index={i}
             />
           ))}
         </div>
