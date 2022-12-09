@@ -36,13 +36,15 @@ export const Create = () => {
       habitColor={`bg-${habitColor}`}
       rightBtnFunction={onClick}
     >
-      <div className={`flex w-full flex-col bg-${habitColor} px-8 pt-8 pb-4`}>
-        <span className="uppercase text-sm">{createConstants.habitName}</span>
+      <div className={`flex w-full flex-col bg-${habitColor} px-8 pt-10 pb-4`}>
+        <span className="uppercase text-sm font-bold">
+          {createConstants.habitTitle}
+        </span>
         <input
           className="bg-transparent placeholder:text-black/30 text-xl outline-none mt-2"
           value={titleValue}
           onChange={(e) => setTitleValue(e.target.value)}
-          placeholder={createConstants.inputNamePlaceholder}
+          placeholder={createConstants.inputTitlePlaceholder}
         />
       </div>
       <div
