@@ -14,6 +14,8 @@ export const createConstants = {
   rightBtn: "Save",
   habitName: "Title",
   defaultColor: "mySalad",
+  repeat: "Repeat",
+  chooseColor: "Choose color",
   inputNamePlaceholder: "Read a book, Meditate etc.",
 };
 

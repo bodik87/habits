@@ -45,6 +45,23 @@ export const Create = () => {
           placeholder={createConstants.inputNamePlaceholder}
         />
       </div>
+      <div
+        className={`flex w-full flex-col px-8 py-4 border-b border-black/10`}
+      >
+        <div className="flex justify-between items-center h-10">
+          <span>{createConstants.repeat}</span>
+        </div>
+      </div>
+      <div
+        className={`flex w-full flex-col px-8 py-4 border-b border-black/10`}
+      >
+        <div className="flex justify-between items-center h-10">
+          <span>{createConstants.chooseColor}</span>
+          <span
+            className={`w-10 h-10 rounded-full flex justify-center items-center bg-${habitColor}`}
+          ></span>
+        </div>
+      </div>
     </CardLayout>
   );
 };

@@ -10,7 +10,6 @@ interface CardLayoutProps {
   leftLinkPath: string;
   rightLinkText?: string;
   rightLinkPath: string;
-  rightBtnText?: string;
   rightBtnFunction?: () => void;
 }
 
@@ -20,7 +19,6 @@ export const CardLayout = ({
   leftLinkPath,
   rightLinkText,
   rightLinkPath,
-  rightBtnText,
   rightBtnFunction,
   title,
   habitColor,
@@ -28,7 +26,7 @@ export const CardLayout = ({
   return (
     <>
       <div
-        className={`sticky max-w-[43rem] mx-auto ${habitColor} backdrop-blur-md top-0 h-20 z-20 px-8  flex justify-between items-center border-b border-black/10`}
+        className={`sticky max-w-[43rem] mx-auto ${habitColor} backdrop-blur-md top-0 h-20 z-20 px-8 flex justify-between items-center border-b border-black/10`}
       >
         <Link className="font-semibold min-w-[50px]" to={leftLinkPath}>
           {leftLinkText}
