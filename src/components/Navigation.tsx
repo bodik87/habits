@@ -51,11 +51,27 @@ export const Navigation = () => {
               visibleSettings ? "block" : "hidden"
             } bg-slate-300 px-8 pt-14 pb-24 rounded-t-[3rem] w-full absolute bottom-0 left-0 -z-10`}
           >
-            <div
-              className="cursor-pointer hover:text-red-700 transition-all duration-200 font-medium"
-              onClick={resetAll}
-            >
-              RESET ALL 😨
+            <div className="flex flex-col gap-6">
+              <div
+                className="cursor-pointer hover:text-red-700 transition-all duration-200 font-medium"
+                onClick={() => console.log("Sort")}
+              >
+                Sort by name | date
+              </div>
+
+              <div
+                className="cursor-pointer hover:text-red-700 transition-all duration-200 font-medium"
+                onClick={resetAll}
+              >
+                RESET ALL 😨
+              </div>
+
+              <div
+                className="cursor-pointer hover:text-red-700 transition-all duration-200 font-medium"
+                onClick={() => console.log("Dark Theme")}
+              >
+                Dark Theme
+              </div>
             </div>
           </div>
         </div>

@@ -12,12 +12,12 @@ import { useState } from "react";
 import { colors } from "../assets/constants";
 
 export const Edit = () => {
-  const { deleteHabit } = useActions();
   const { habits } = useTypedSelector((state) => state.habits);
   const { id } = useParams();
   const habit = habits.filter((habit) => habit.id === Number(id))[0];
   const navigate = useNavigate();
   const goHome = () => navigate("/");
+  const { deleteHabit, addHabit } = useActions();
 
   const [titleValue, setTitleValue] = useState(habit.title);
   const [habitColor, setHabitColor] = useState(habit.color);
@@ -32,7 +32,6 @@ export const Edit = () => {
 
   const clickHandler = (text: string) => {
     setHabitColor(text);
-    // navigate(-1);
   };
 
   const createNewHabit = (): any => {
@@ -48,9 +47,11 @@ export const Edit = () => {
   const newHabit = createNewHabit();
 
   const onClick = () => {
-    // if (titleValue.trim().length) addHabit(newHabit);
-    if (titleValue.trim().length) console.log(newHabit);
-    console.log(habit);
+    if (titleValue.trim().length) {
+      deleteHabit(Number(id));
+      addHabit(newHabit);
+      goHome();
+    }
   };
 
   return (
@@ -58,7 +59,7 @@ export const Edit = () => {
       rightLinkText={editConstants.rightBtn}
       leftLinkText={editConstants.leftBtn}
       leftLinkPath={`/statistics/${id}`}
-      rightLinkPath=""
+      rightLinkPath="/"
       title={
         habit.title.length > 18 ? habit.title.slice(0, 18) + "..." : habit.title
       }
@@ -79,7 +80,7 @@ export const Edit = () => {
         <span className="font-medium">{statisticsConstants.goal}</span>
 
         <div className="flex items-center gap-2">
-          <div className="flex gap-3 items-center">
+          <div className="flex gap-4 items-center mb-2">
             <span className="cursor-pointer" onClick={() => setGoal(goal - 1)}>
               <svg
                 width="21.213203"
