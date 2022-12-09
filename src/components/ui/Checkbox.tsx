@@ -1,18 +1,32 @@
-import { useEffect, useMemo, useState } from "react";
-import { IHabitProps } from "../../types";
+import { useState } from "react";
 import { useActions } from "../hooks/useActions";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 
-const Unchecked = () => {
+interface IUnCheckedProps {
+  index: number;
+}
+
+const Unchecked = ({ index }: IUnCheckedProps) => {
   return (
     <div className="px-2 py-2">
-      <div className="w-[10px] h-[10px] border-2 border-myDark rounded-full"></div>
+      <div
+        className={`w-[10px] h-[10px] border-2 ${
+          index === 0 ? "opacity-100" : "opacity-70"
+        } border-myDark rounded-full`}
+      ></div>
     </div>
   );
 };
-const Checked = () => {
+
+interface ICheckedProps {
+  index: number;
+}
+
+const Checked = ({ index }: ICheckedProps) => {
   return (
-    <div className="px-1 py-1 mb-1">
+    <div
+      className={`px-1 py-1 mb-1 ${index === 0 ? "opacity-100" : "opacity-70"}`}
+    >
       <svg
         width="18"
         height="18"
@@ -44,6 +58,7 @@ interface CheckboxProps {
   date: string;
   setProgress: (boolean: boolean) => void;
   id: number;
+  index: number;
 }
 
 export const Checkbox = ({
@@ -51,6 +66,7 @@ export const Checkbox = ({
   date,
   setProgress,
   id,
+  index,
 }: CheckboxProps) => {
   const [checked, setChecked] = useState(isChecked);
   const { habits } = useTypedSelector((state) => state.habits);
@@ -73,7 +89,7 @@ export const Checkbox = ({
       className="cursor-pointer flex justify-center items-center"
       onClick={() => toggleCheck(checked)}
     >
-      {checked ? <Checked /> : <Unchecked />}
+      {checked ? <Checked index={index} /> : <Unchecked index={index} />}
     </div>
   );
 };

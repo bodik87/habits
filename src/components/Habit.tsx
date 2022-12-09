@@ -74,13 +74,14 @@ export const Habit = ({
           onClick={handleClick}
           className="flex w-[13rem] justify-between items-center z-10"
         >
-          {datesRow.map((date) => (
+          {datesRow.map((date, i) => (
             <Checkbox
               key={date}
               id={habit.id}
               isChecked={habit.checkedDays.some((day) => day == date)}
               date={date}
               setProgress={setProgress}
+              index={i}
             />
           ))}
         </div>
