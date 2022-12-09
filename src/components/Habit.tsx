@@ -1,8 +1,7 @@
 import { eachDayOfInterval, format, startOfToday, subDays } from "date-fns";
-import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IHabitProps } from "../types";
-import { useActions } from "./hooks/useActions";
 import { useTypedSelector } from "./hooks/useTypedSelector";
 import { Checkbox } from "./ui/Checkbox";
 
@@ -53,6 +52,7 @@ export const Habit = ({
 
   const { habits } = useTypedSelector((state) => state.habits);
   const habit = habits.filter((habit) => habit.id === Number(id))[0];
+
   return (
     <div
       ref={cardWidthRef}
@@ -74,52 +74,20 @@ export const Habit = ({
           onClick={handleClick}
           className="flex w-[13rem] justify-between items-center z-10"
         >
-          {/* {datesRow.map((date) => (
+          {datesRow.map((date) => (
             <Checkbox
               key={date}
+              id={habit.id}
               isChecked={habit.checkedDays.some((day) => day == date)}
               date={date}
               setProgress={setProgress}
             />
-          ))} */}
-          <CheckRow dates={datesRow} />
+          ))}
         </div>
       </div>
       <div className="absolute bottom-4 text-xl text-left z-10">
         {title.length > 40 ? title.slice(0, 40) + "..." : title}
       </div>
-    </div>
-  );
-};
-
-interface CheckRowProps {
-  dates: string[];
-}
-const CheckRow = ({ dates }: CheckRowProps) => {
-  const { arr } = useTypedSelector((state) => state.habits);
-  const { pushToArr } = useActions();
-  const [value, setValue] = useState<String>("");
-
-  useEffect(() => {}, []);
-
-  const clickHandler = useCallback((e: any) => {
-    setValue(e.target.value);
-    pushToArr(value);
-  };) 
-
-  console.log(arr);
-
-  return (
-    <div className="flex gap-1 text-sm">
-      {dates.map((item) => (
-        <input
-          key={item}
-          className="bg-myGreen p-1 cursor-pointer"
-          type="checkbox"
-          value={item}
-          onChange={clickHandler}
-        />
-      ))}
     </div>
   );
 };

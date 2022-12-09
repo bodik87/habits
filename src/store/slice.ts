@@ -4,12 +4,10 @@ import { IHabitProps } from "../types";
 
 interface IInitialState {
   habits: IHabitProps[];
-  arr: any;
 }
 
 const initialState: IInitialState = {
   habits: habits,
-  arr: ["777"],
 };
 
 export const habitsSlice = createSlice({
@@ -17,7 +15,6 @@ export const habitsSlice = createSlice({
   initialState,
   reducers: {
     addHabit: (state, action: PayloadAction<IHabitProps>) => {
-      //   state.habits = [...state.habits, action.payload]; // oldSchool
       state.habits.push(action.payload);
     },
     deleteHabit: (state, action: PayloadAction<Number>) => {
@@ -25,8 +22,22 @@ export const habitsSlice = createSlice({
         (habit) => habit.id !== action.payload
       );
     },
-    pushToArr: (state, action: PayloadAction<String>) => {
-      state.arr.push(action.payload);
+    addCheckedDay: (state, action: PayloadAction<any>) => {
+      state.habits.map((habit) =>
+        habit.id === action.payload.id
+          ? habit.checkedDays.push(action.payload.date)
+          : habit
+      );
+    },
+    deleteCheckedDay: (state, action: PayloadAction<any>) => {
+      state.habits.map((habit) =>
+        habit.id === action.payload.id &&
+        habit.checkedDays.includes(action.payload.date)
+          ? (habit.checkedDays = habit.checkedDays.filter(
+              (item) => item !== action.payload.date
+            ))
+          : habit
+      );
     },
   },
 });

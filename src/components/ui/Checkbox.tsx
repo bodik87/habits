@@ -1,4 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
+import { IHabitProps } from "../../types";
+import { useActions } from "../hooks/useActions";
+import { useTypedSelector } from "../hooks/useTypedSelector";
 
 const Unchecked = () => {
   return (
@@ -40,20 +43,35 @@ interface CheckboxProps {
   isChecked: boolean;
   date: string;
   setProgress: (boolean: boolean) => void;
+  id: number;
 }
 
-export const Checkbox = ({ isChecked, date, setProgress }: CheckboxProps) => {
+export const Checkbox = ({
+  isChecked,
+  date,
+  setProgress,
+  id,
+}: CheckboxProps) => {
   const [checked, setChecked] = useState(isChecked);
+  const { habits } = useTypedSelector((state) => state.habits);
+  const habit = habits.filter((habit) => habit.id === Number(id))[0];
+  const { addCheckedDay, deleteCheckedDay } = useActions();
 
-  const toggleCheck = () => {
-    setChecked(!checked);
-    setProgress(!checked);
+  const toggleCheck = (boolean: boolean) => {
+    if (boolean) {
+      deleteCheckedDay({ id: id, date: date });
+      setChecked(!checked);
+    } else {
+      addCheckedDay({ id: id, date: date });
+      setChecked(!checked);
+    }
+    setProgress(boolean);
   };
 
   return (
     <div
       className="cursor-pointer flex justify-center items-center"
-      onClick={toggleCheck}
+      onClick={() => toggleCheck(checked)}
     >
       {checked ? <Checked /> : <Unchecked />}
     </div>
