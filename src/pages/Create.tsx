@@ -43,7 +43,7 @@ export const Create = () => {
       rightBtnFunction={onClick}
     >
       {location.pathname === "/create/colors" ? (
-        <Outlet />
+        <Outlet context={{ setHabitColor }} />
       ) : (
         <>
           <div
