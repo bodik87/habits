@@ -57,8 +57,6 @@ export default function Calendar({ id }: ICalendarProps) {
     setCurrentMonth(format(firstDayNextMonth, "MMM-yyyy"));
   }
 
-  const mainBorderColor: string = "border-" + habit.color;
-
   return (
     <div className="pt-4 px-8 mx-auto">
       <div className="flex items-center justify-between">
@@ -135,7 +133,7 @@ export default function Calendar({ id }: ICalendarProps) {
               <div
                 className={`${
                   isToday(day) && "text-red-500 font-bold"
-                } w-10 h-10 rounded-full flex justify-center items-center ${mainBorderColor} border-2`}
+                } w-10 h-10 rounded-full flex justify-center items-center border-2 border-myRed`}
               >
                 <time dateTime={format(day, "yyyy-MM-dd")}>
                   {format(day, "d")}
