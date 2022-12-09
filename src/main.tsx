@@ -13,20 +13,35 @@ import { Edit } from "./pages/Edit";
 import { Provider } from "react-redux";
 import { persistor, store } from "./store/store";
 import { PersistGate } from "redux-persist/integration/react";
+import { Colors } from "./pages/Colors";
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route
-      element={<App />}
-      path="/"
-      // errorElement={<Error />}
-    >
-      <Route element={<Create />} path="/create" />
-      <Route element={<Statistics />} path="/statistics/:id" />
-      <Route element={<Edit />} path="/edit/:id" />
-    </Route>
-  )
-);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    // errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/create",
+        element: <Create />,
+        children: [
+          {
+            path: "/create/colors",
+            element: <Colors />,
+          },
+        ],
+      },
+      {
+        path: "/statistics/:id",
+        element: <Statistics />,
+      },
+      {
+        path: "/edit/:id",
+        element: <Edit />,
+      },
+    ],
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <Provider store={store}>
