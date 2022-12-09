@@ -69,14 +69,14 @@ export const Create = () => {
           <div
             className={`flex w-full flex-col px-8 py-4 border-b border-black/10`}
           >
-            <div className="flex justify-between items-center h-10">
-              <span>{createConstants.chooseColor}</span>
-              <Link to="/create/colors">
+            <Link to="/create/colors">
+              <div className="flex justify-between items-center h-10">
+                <span>{createConstants.chooseColor}</span>
                 <span
                   className={`w-10 h-10 rounded-full flex justify-center items-center bg-${habitColor} cursor-pointer hover:scale-105 transition-all duration-200`}
                 ></span>
-              </Link>
-            </div>
+              </div>
+            </Link>
           </div>
         </>
       )}

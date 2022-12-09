@@ -38,6 +38,12 @@ const router = createBrowserRouter([
       {
         path: "/edit/:id",
         element: <Edit />,
+        children: [
+          {
+            path: "/edit/:id/colors",
+            element: <Colors />,
+          },
+        ],
       },
     ],
   },

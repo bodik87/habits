@@ -1,14 +1,5 @@
 import { useNavigate, useOutletContext } from "react-router-dom";
-
-const colors = [
-  "myRed",
-  "myGreen",
-  "mySalad",
-  "myYellow",
-  "myPink",
-  "myViolet",
-  "myBlue",
-];
+import { colors } from "../assets/constants";
 
 const colStartClasses = ["col-start-1", "col-start-2", "col-start-3"];
 

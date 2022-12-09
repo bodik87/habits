@@ -1,3 +1,13 @@
+export const colors = [
+  "myRed",
+  "myGreen",
+  "mySalad",
+  "myYellow",
+  "myPink",
+  "myViolet",
+  "myBlue",
+];
+
 export const bgCardColors = {
   blue: "bg-myBlue",
   yellow: "bg-myYellow",
@@ -32,6 +42,7 @@ export const statisticsConstants = {
 export const editConstants = {
   leftBtn: "Back",
   rightBtn: "Save",
-  habitName: "Reglarity",
-  history: "History",
+  rename: "Rename habit",
+  deleteHabit: "Delete habit",
+  inputTitlePlaceholder: "Enter a new name",
 };
