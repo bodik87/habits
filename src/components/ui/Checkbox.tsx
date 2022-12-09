@@ -5,18 +5,14 @@ import { useTypedSelector } from "../hooks/useTypedSelector";
 const Unchecked = () => {
   return (
     <div className="px-2 py-2">
-      <div
-        className="w-[10px] h-[10px] border-2 border-myDark rounded-full"
-      ></div>
+      <div className="w-[10px] h-[10px] border-2 border-myDark rounded-full"></div>
     </div>
   );
 };
 
 const Checked = () => {
   return (
-    <div
-      className="px-1 py-1 mb-1"
-    >
+    <div className="px-1 py-1 mb-1">
       <svg
         width="18"
         height="18"
@@ -57,8 +53,6 @@ export const Checkbox = ({
   id,
 }: CheckboxProps) => {
   const [checked, setChecked] = useState(isChecked);
-  const { habits } = useTypedSelector((state) => state.habits);
-  const habit = habits.filter((habit) => habit.id === Number(id))[0];
   const { addCheckedDay, deleteCheckedDay } = useActions();
 
   const toggleCheck = (boolean: boolean) => {

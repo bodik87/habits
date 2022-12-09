@@ -58,7 +58,7 @@ export default function Calendar({ id }: ICalendarProps) {
   }
 
   return (
-    <div className="pt-4 px-8 mx-auto">
+    <div className="mt-1 px-6 mx-auto">
       <div className="flex items-center justify-between">
         <button onClick={previousMonth} className="opacity-80">
           <span className="">
@@ -109,7 +109,7 @@ export default function Calendar({ id }: ICalendarProps) {
         </button>
       </div>
 
-      <div className="grid grid-cols-7 mt-5 -mx-4 text-xs font-semibold text-center">
+      <div className="grid grid-cols-7 mt-6 -mx-4 text-xs font-semibold text-center">
         <div>MON</div>
         <div>TUE</div>
         <div>WED</div>

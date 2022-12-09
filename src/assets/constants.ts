@@ -25,6 +25,8 @@ export const statisticsConstants = {
   regularity: "Regularity",
   overview: "Overview",
   history: "History",
+  сompleted: "Сompleted",
+  goal: "Goal",
 };
 
 export const editConstants = {

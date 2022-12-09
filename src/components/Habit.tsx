@@ -86,7 +86,7 @@ export const Habit = ({
         </div>
       </div>
       <div className="absolute bottom-4 text-xl text-left z-10">
-        {title.length > 40 ? title.slice(0, 40) + "..." : title}
+        {title.length > 28 ? title.slice(0, 28) + "..." : title}
       </div>
     </div>
   );

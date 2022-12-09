@@ -9,6 +9,11 @@ export const Statistics = () => {
   const { habits } = useTypedSelector((state) => state.habits);
   const habit = habits.filter((habit) => habit.id === Number(id))[0];
 
+  const percent = Math.ceil((habit.checkedDays.length / habit.repeat) * 100);
+
+  const sectionStyle = `flex w-full flex-col px-6 pb-4`;
+  const sectionTitleStyle = `uppercase text-sm font-medium`;
+
   return (
     <CardLayout
       rightLinkText={statisticsConstants.rightBtn}
@@ -16,19 +21,36 @@ export const Statistics = () => {
       leftLinkPath="/"
       rightLinkPath={`/edit/${id}`}
       title={
-        habit.title.length > 28 ? habit.title.slice(0, 28) + "..." : habit.title
+        habit.title.length > 18 ? habit.title.slice(0, 18) + "..." : habit.title
       }
       habitColor={`bg-${habit.color}`}
     >
-      <div className={`flex w-full flex-col bg-${habit.color} px-8 pt-8 pb-4`}>
-        <span className="uppercase text-sm font-medium">
+      <div className={`${sectionStyle} pt-8 bg-${habit.color}`}>
+        <span className={sectionTitleStyle}>
           {statisticsConstants.regularity}
         </span>
       </div>
 
-      <div className={`flex w-full flex-col px-8 pt-8 pb-4`}>
-        <span className="uppercase text-sm font-medium">
+      <div className={sectionStyle}>
+        <span className={`${sectionTitleStyle} pt-6`}>
           {statisticsConstants.overview}
+        </span>
+        <div className="flex gap-6">
+          <span className="text-6xl mt-1">{percent}%</span>
+          <div>
+            <div className={`text-sm font-medium mt-2`}>
+              {statisticsConstants.goal}: {habit.repeat} times
+            </div>
+            <div className={`text-sm font-medium mt-3`}>
+              {statisticsConstants.сompleted}: {habit.checkedDays.length} times
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className={sectionStyle}>
+        <span className={`${sectionTitleStyle} pt-4`}>
+          {statisticsConstants.history}
         </span>
       </div>
 
