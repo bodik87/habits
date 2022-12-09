@@ -25,7 +25,7 @@ export const Statistics = () => {
           {statisticsConstants.habitName}
         </span>
       </div>
-      <Calendar />
+      <Calendar id={id} />
     </CardLayout>
   );
 };

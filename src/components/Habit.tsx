@@ -61,7 +61,7 @@ export const Habit = ({
     >
       <div className="flex items-center h-[10px] mt-[6px] justify-end">
         <div
-          className={`bg-${color} left-8 flex justify-center items-center rounded-full absolute z-0 transition-all duration-300`}
+          className={`bg-${color} left-8 flex justify-center items-center rounded-full absolute z-0 transition-all duration-500`}
           style={{
             width: `${circleDiameter}px`,
             height: `${circleDiameter}px`,

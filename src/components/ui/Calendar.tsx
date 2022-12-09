@@ -11,6 +11,7 @@ import {
   startOfToday,
 } from "date-fns";
 import { useState } from "react";
+import { useTypedSelector } from "../hooks/useTypedSelector";
 
 const checkedDays = [
   "2022-12-07",
@@ -30,9 +31,14 @@ let colStartClasses = [
   "col-start-6",
 ];
 
-export default function Calendar() {
+interface ICalendarProps {
+  id: any;
+}
+
+export default function Calendar({ id }: ICalendarProps) {
+  const { habits } = useTypedSelector((state) => state.habits);
+  const habit = habits.filter((habit) => habit.id === Number(id))[0];
   let today = startOfToday();
-  let [selectedDay, setSelectedDay] = useState(today);
   let [currentMonth, setCurrentMonth] = useState(format(today, "MMM-yyyy"));
   let firstDayCurrentMonth = parse(currentMonth, "MMM-yyyy", new Date());
 
@@ -50,6 +56,8 @@ export default function Calendar() {
     let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 });
     setCurrentMonth(format(firstDayNextMonth, "MMM-yyyy"));
   }
+
+  const mainBorderColor: string = "border-" + habit.color;
 
   return (
     <div className="pt-4 px-8 mx-auto">
@@ -103,7 +111,7 @@ export default function Calendar() {
         </button>
       </div>
 
-      <div className="grid grid-cols-7 mt-5 text-xs font-semibold text-center">
+      <div className="grid grid-cols-7 mt-5 -mx-4 text-xs font-semibold text-center">
         <div>MON</div>
         <div>TUE</div>
         <div>WED</div>
@@ -113,7 +121,7 @@ export default function Calendar() {
         <div>SUN</div>
       </div>
 
-      <div className="grid grid-cols-7 mt-2">
+      <div className="grid grid-cols-7 mt-2 -mx-4">
         {days.map((day, dayIdx) => (
           <div
             key={day.toString()}
@@ -121,11 +129,13 @@ export default function Calendar() {
               dayIdx === 0 && colStartClasses[getDay(day)]
             } mx-auto`}
           >
-            {checkedDays.some((date) => isSameDay(parseISO(date), day)) ? (
+            {habit.checkedDays.some((date) =>
+              isSameDay(parseISO(date), day)
+            ) ? (
               <div
                 className={`${
-                  isToday(day) && "text-red-500 font-semibold"
-                } w-10 h-10 rounded-full flex justify-center items-center border-2 border-red-500`}
+                  isToday(day) && "text-red-500 font-bold"
+                } w-10 h-10 rounded-full flex justify-center items-center ${mainBorderColor} border-2`}
               >
                 <time dateTime={format(day, "yyyy-MM-dd")}>
                   {format(day, "d")}
