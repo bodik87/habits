@@ -14,6 +14,9 @@ module.exports = {
         myWhite: "#F8F8F8",
         myDark: "#050505",
       },
+      zIndex: {
+        "z-2": "2",
+      },
     },
   },
   plugins: [],
