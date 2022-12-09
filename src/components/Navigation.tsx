@@ -35,27 +35,31 @@ export const Navigation = () => {
   }
 
   return (
-    <div className="fixed w-full left-0 right-0 bg-white/60 border-t-2 backdrop-blur-md bottom-0 h-14 z-20">
-      <div className="flex justify-between items-center max-w-[43rem] mx-auto h-14 px-8 md:px-[4.5rem]">
-        <div onClick={toggleSettings}>
-          <Burger />
-        </div>
+    <>
+      {location.pathname === "/" && (
+        <div className="fixed w-full left-0 right-0 bg-white/60 border-t-2 backdrop-blur-md bottom-0 h-14 z-20">
+          <div className="flex justify-between items-center max-w-[43rem] mx-auto h-14 px-8 md:px-[4.5rem]">
+            <div onClick={toggleSettings}>
+              <Burger />
+            </div>
 
-        {location.pathname === "/" ? <Plus /> : null}
-      </div>
+            {location.pathname === "/" ? <Plus /> : null}
+          </div>
 
-      <div
-        className={`${
-          visibleSettings ? "block" : "hidden"
-        } bg-slate-300 px-8 pt-14 pb-24 rounded-t-[3rem] w-full absolute bottom-0 left-0 -z-10`}
-      >
-        <div
-          className="cursor-pointer hover:text-red-700 transition-all duration-200 font-medium"
-          onClick={resetAll}
-        >
-          RESET ALL 😨
+          <div
+            className={`${
+              visibleSettings ? "block" : "hidden"
+            } bg-slate-300 px-8 pt-14 pb-24 rounded-t-[3rem] w-full absolute bottom-0 left-0 -z-10`}
+          >
+            <div
+              className="cursor-pointer hover:text-red-700 transition-all duration-200 font-medium"
+              onClick={resetAll}
+            >
+              RESET ALL 😨
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
