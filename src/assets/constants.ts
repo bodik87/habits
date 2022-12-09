@@ -8,6 +8,8 @@ export const colors = [
   "myBlue",
 ];
 
+export const goals = [7, 21, 30, 90, 365];
+
 export const bgCardColors = {
   blue: "bg-myBlue",
   yellow: "bg-myYellow",
