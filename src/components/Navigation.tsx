@@ -34,6 +34,12 @@ export const Navigation = () => {
     setVisibleSettings(!visibleSettings);
   }
 
+  function closeSettings() {
+    setVisibleSettings(false);
+  }
+
+  const handleClick = (event: any) => event.stopPropagation();
+
   return (
     <>
       {location.pathname === "/" && (
@@ -45,37 +51,52 @@ export const Navigation = () => {
 
             {location.pathname === "/" ? <Plus /> : null}
           </div>
+        </div>
+      )}
 
-          <div
-            className={`${
-              visibleSettings ? "block" : "hidden"
-            } bg-slate-300 px-8 pt-14 pb-24 rounded-t-[3rem] w-full absolute bottom-0 left-0 -z-10`}
-          >
-            <div className="flex flex-col gap-6">
-              <div
-                className="cursor-pointer hover:text-red-700 transition-all duration-200 font-medium"
-                onClick={() => console.log("Sort")}
-              >
-                Sort by name | date
-              </div>
+      <div
+        onClick={closeSettings}
+        className={`${
+          visibleSettings ? "block" : "hidden"
+        } max-w-[43rem] mx-auto px-4 bg-white/10 absolute top-0 left-0 right-0 bottom-0 z-10 backdrop-blur-sm`}
+      >
+        <div
+          onClick={handleClick}
+          className="bg-slate-300 px-8 pt-10 pb-24 rounded-t-3xl fixed bottom-0 z-10 shadow-2xl"
+        >
+          <div className="flex flex-col gap-6">
+            <div
+              className="cursor-pointer hover:text-red-700 transition-all duration-200 font-medium"
+              onClick={() => console.log("Sort")}
+            >
+              Sort by name | date
+            </div>
 
-              <div
-                className="cursor-pointer hover:text-red-700 transition-all duration-200 font-medium"
-                onClick={resetAll}
-              >
-                RESET ALL 😨
-              </div>
+            <div
+              className="cursor-pointer hover:text-red-700 transition-all duration-200 font-medium"
+              onClick={resetAll}
+            >
+              RESET ALL 😨
+            </div>
 
-              <div
-                className="cursor-pointer hover:text-red-700 transition-all duration-200 font-medium"
-                onClick={() => console.log("Dark Theme")}
-              >
-                Dark Theme
-              </div>
+            <div
+              className="cursor-pointer hover:text-red-700 transition-all duration-200 font-medium"
+              onClick={() => console.log("Dark Theme")}
+            >
+              Dark Theme
+            </div>
+
+            <div
+              className="cursor-pointer hover:text-red-700 transition-all duration-200 font-medium"
+              onClick={() => console.log("Dark Theme")}
+            >
+              <a href="https://bodik87.github.io/index.html" target="_blank">
+                To my portfolio 😊
+              </a>
             </div>
           </div>
         </div>
-      )}
+      </div>
     </>
   );
 };
