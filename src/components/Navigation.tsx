@@ -93,6 +93,7 @@ export const Navigation = () => {
                   onClick={() => console.log("Dark Theme")}
                 >
                   <a
+                    onClick={closeSettings}
                     href="https://bodik87.github.io/index.html"
                     target="_blank"
                   >

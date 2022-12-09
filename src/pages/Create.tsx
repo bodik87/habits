@@ -1,5 +1,9 @@
 import { CardLayout } from "../components/ui/CardLayout";
-import { createConstants } from "../assets/constants";
+import {
+  createConstants,
+  goals,
+  statisticsConstants,
+} from "../assets/constants";
 import { useState } from "react";
 import { useActions } from "../components/hooks/useActions";
 import { useTypedSelector } from "../components/hooks/useTypedSelector";
@@ -9,6 +13,8 @@ export const Create = () => {
   const location = useLocation();
   const [habitColor, setHabitColor] = useState(createConstants.defaultColor);
   const [titleValue, setTitleValue] = useState("");
+  const [goal, setGoal] = useState(7);
+
   const { habits } = useTypedSelector((state) => state.habits);
   const { addHabit } = useActions();
 
@@ -17,7 +23,7 @@ export const Create = () => {
       id: habits.length + 1,
       title: titleValue,
       color: habitColor,
-      repeat: 10,
+      repeat: goal,
       checkedDays: [],
     };
   };
@@ -59,13 +65,80 @@ export const Create = () => {
               placeholder={createConstants.inputTitlePlaceholder}
             />
           </div>
+
+          {/* Repeat */}
           <div
-            className={`flex w-full flex-col px-8 py-4 border-b border-black/10`}
+            className={`px-6 py-6 border-b border-black/10 flex flex-col gap-4`}
           >
-            <div className="flex justify-between items-center h-10">
-              <span>{createConstants.repeat}</span>
+            <span className="font-medium">{statisticsConstants.goal}</span>
+
+            <div className="flex items-center gap-2">
+              <div className="flex gap-4 items-center mb-2">
+                <span
+                  className="cursor-pointer"
+                  onClick={() => setGoal(goal - 1)}
+                >
+                  <svg
+                    width="21.213203"
+                    height="21.213196"
+                    viewBox="0 0 21.2132 21.2132"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M2.12133 8.48528L12.0208 18.3848C12.4113 18.7753 12.4113 19.4085 12.0208 19.799L11.3137 20.5061C10.9232 20.8966 10.29 20.8966 9.8995 20.5061L7.62939e-06 10.6066L2.12133 8.48528Z"
+                      fillRule="evenodd"
+                      fill="#050505"
+                    />
+                    <path
+                      d="M3.8147e-06 10.6066L9.8995 0.707108C10.29 0.316574 10.9232 0.316574 11.3137 0.707108L12.0208 1.41422C12.4113 1.80473 12.4113 2.4379 12.0208 2.82843L2.12132 12.7279L3.8147e-06 10.6066Z"
+                      fillRule="evenodd"
+                      fill="#050505"
+                    />
+                  </svg>
+                </span>
+                <span className="font-medium text-xl">{goal} times</span>
+                <span
+                  className="cursor-pointer"
+                  onClick={() => setGoal(goal + 1)}
+                >
+                  <svg
+                    width="21.213203"
+                    height="21.213196"
+                    viewBox="0 0 21.2132 21.2132"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M19.0919 12.7279L9.19238 2.82841C8.80186 2.43788 8.80186 1.80472 9.19238 1.4142L9.89949 0.707092C10.29 0.316559 10.9232 0.316559 11.3137 0.707092L21.2132 10.6066L19.0919 12.7279Z"
+                      fillRule="evenodd"
+                      fill="#050505"
+                    />
+                    <path
+                      d="M21.2132 10.6066L11.3137 20.5061C10.9232 20.8966 10.29 20.8966 9.89949 20.5061L9.19239 19.799C8.80186 19.4085 8.80186 18.7753 9.19239 18.3848L19.0919 8.48528L21.2132 10.6066Z"
+                      fillRule="evenodd"
+                      fill="#050505"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+
+            <div className="flex justify-between">
+              {goals.map((goalItem) => (
+                <div
+                  key={goalItem}
+                  onClick={() => setGoal(goalItem)}
+                  className={`w-14 h-10 text-lg rounded-full flex justify-center bg-${habitColor} items-center cursor-pointer hover:brightness-105 transition-all duration-300`}
+                >
+                  {goalItem}
+                </div>
+              ))}
             </div>
           </div>
+
+          {/* color */}
+
           <div
             className={`flex w-full flex-col px-8 py-4 border-b border-black/10`}
           >
