@@ -3,13 +3,28 @@ import { eachDayOfInterval, format, startOfToday, subDays } from "date-fns";
 interface DateGroupProps {
   day: string;
   date: string;
+  index: number;
 }
 
-const DateGroup = ({ day, date }: DateGroupProps) => {
+const DateGroup = ({ day, date, index }: DateGroupProps) => {
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="font-medium leading-none">{date.slice(0, 2)}</div>
-      <div className="text-[0.8rem] font-medium leading-none">
+      <div
+        className={`${
+          index === 4
+            ? "text-myDark font-semibold"
+            : "text-black/70 font-medium"
+        }`}
+      >
+        {date.slice(0, 2)}
+      </div>
+      <div
+        className={`${
+          index === 4
+            ? "text-myDark font-semibold"
+            : "text-black/70 font-medium"
+        } text-[0.8rem]`}
+      >
         {day.slice(-3)}
       </div>
     </div>
@@ -32,7 +47,7 @@ export const Header = () => {
       <p className=" font-medium text-3xl">Habit</p>
       <div className="flex w-[13rem] justify-between">
         {datesRow.map((item, i) => (
-          <DateGroup key={item} day={item} date={item} />
+          <DateGroup key={item} day={item} date={item} index={i} />
         ))}
       </div>
     </div>
