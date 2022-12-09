@@ -16,13 +16,13 @@ export const Habit = ({
   const goToStatistics = (id: number) => navigate(`/statistics/${id}`);
   const handleClick = (event: any) => event.stopPropagation();
 
-  const [goal, setGoal] = useState(0);
+  const [goal, setGoal] = useState(repeat);
   const [result, setResult] = useState(0);
   const [percent, setPercent] = useState(0);
   const [cardWidth, setCardWidth] = useState(0);
   const [circleDiameter, setCircleDiameter] = useState(0);
   const cardWidthRef = useRef<any>();
-  const step = Math.ceil((cardWidth * 1.85) / goal);
+  const step = Math.ceil((cardWidth * 1.92) / goal);
 
   useEffect(() => {
     setGoal(repeat);
@@ -30,7 +30,7 @@ export const Habit = ({
     setPercent(Math.ceil((result / goal) * 100));
     setCardWidth(cardWidthRef.current.clientWidth);
     setCircleDiameter(step * result);
-  }, [result]);
+  }, [result, percent]);
 
   const setProgress = (boolean: boolean) => {
     if (boolean) {
