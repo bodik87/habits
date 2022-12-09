@@ -12,7 +12,7 @@ export const createConstants = {
   title: "Create a Habit",
   leftBtn: "Cancel",
   rightBtn: "Save",
-  habitName: "Name",
+  habitName: "Title",
   defaultColor: "mySalad",
   inputNamePlaceholder: "Read a book, Meditate etc.",
 };
