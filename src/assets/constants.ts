@@ -22,7 +22,8 @@ export const createConstants = {
 export const statisticsConstants = {
   leftBtn: "Back",
   rightBtn: "Edit",
-  habitName: "Regularity",
+  regularity: "Regularity",
+  overview: "Overview",
   history: "History",
 };
 

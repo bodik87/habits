@@ -21,10 +21,17 @@ export const Statistics = () => {
       habitColor={`bg-${habit.color}`}
     >
       <div className={`flex w-full flex-col bg-${habit.color} px-8 pt-8 pb-4`}>
-        <span className="uppercase text-sm">
-          {statisticsConstants.habitName}
+        <span className="uppercase text-sm font-medium">
+          {statisticsConstants.regularity}
         </span>
       </div>
+
+      <div className={`flex w-full flex-col px-8 pt-8 pb-4`}>
+        <span className="uppercase text-sm font-medium">
+          {statisticsConstants.overview}
+        </span>
+      </div>
+
       <Calendar id={id} />
     </CardLayout>
   );

@@ -49,7 +49,7 @@ export const Create = () => {
           <div
             className={`flex w-full flex-col bg-${habitColor} px-8 pt-10 pb-4`}
           >
-            <span className="uppercase text-sm font-bold">
+            <span className="uppercase text-sm font-medium">
               {createConstants.habitTitle}
             </span>
             <input
