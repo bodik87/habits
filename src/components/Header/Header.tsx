@@ -2,7 +2,7 @@ import { getDaysInterval } from "../../utils/getDaysInterval";
 import { DateGroup } from "./ui/DateGroup";
 
 export const Header = () => {
-  const datesRow = getDaysInterval();
+  const datesRow = getDaysInterval("dd-eee");
   const headerWrapperStyle =
     "sticky max-w-[35rem] h-28 top-0 px-8 md:px-6 mx-auto flex justify-between items-center bg-white/60 backdrop-blur-md z-30";
 

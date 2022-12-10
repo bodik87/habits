@@ -1,20 +1,31 @@
 import { eachDayOfInterval, format, startOfToday, subDays } from "date-fns";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { IHabit } from "../../types";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
+import { getDaysInterval } from "../../utils/getDaysInterval";
 import { Checkbox } from "./ui/Checkbox";
+
+export interface IHabit {
+  color: string;
+  title: string;
+  goal: number;
+  checkedDays: string[];
+  id: number;
+}
 
 export const Habit = (props: IHabit) => {
   const navigate = useNavigate();
   const goToStatistics = (id: number) => navigate(`/statistics/${id}`);
-  const handleClick = (event: any) => event.stopPropagation();
+
+  const { habits } = useTypedSelector((state) => state.habits);
+  const habit = habits.filter((habit) => habit.id === Number(props.id))[0];
 
   const [goal, setGoal] = useState(props.goal);
   const [result, setResult] = useState(0);
   const [percent, setPercent] = useState(0);
   const [cardWidth, setCardWidth] = useState(0);
   const [circleDiameter, setCircleDiameter] = useState(0);
+
   const cardWidthRef = useRef<any>();
   const step = Math.ceil((cardWidth * 1.92) / goal);
 
@@ -34,43 +45,37 @@ export const Habit = (props: IHabit) => {
     }
   };
 
-  let daysInterval = eachDayOfInterval({
-    start: subDays(startOfToday(), 4),
-    end: startOfToday(),
-  });
-
-  let datesRow: string[] = [];
-  daysInterval.forEach((day) => {
-    datesRow.push(format(day, "yyyy-MM-dd"));
-  });
-
-  const { habits } = useTypedSelector((state) => state.habits);
-  const habit = habits.filter((habit) => habit.id === Number(props.id))[0];
+  const datesRow = getDaysInterval("yyyy-MM-dd");
 
   // Styles
+  const habitWrapper =
+    "h-28 max-w-[35rem] py-5 px-4 bg-myWhite rounded-xl relative overflow-hidden";
+  const checkboxRowStyle = "flex w-[13rem] justify-between items-center z-10";
+  const circleStyle =
+    "absolute left-8 flex justify-center items-center rounded-full transition-all duration-500 z-0";
+  const titleStyle = "absolute bottom-4 text-xl text-left z-10";
+  const headStyle = "flex items-center h-[10px] mt-[6px] justify-end";
 
   return (
     <div
       ref={cardWidthRef}
       onClick={() => goToStatistics(props.id)}
-      className={`h-28 max-w-[35rem] bg-myWhite py-5 px-4 rounded-xl relative overflow-hidden`}
+      className={habitWrapper}
     >
-      <div className="flex items-center h-[10px] mt-[6px] justify-end">
+      <div className={headStyle}>
         <div
-          className={`bg-${props.color} left-8 flex justify-center items-center rounded-full absolute z-0 transition-all duration-500`}
+          className={`${circleStyle} bg-${props.color}`}
           style={{
             width: `${circleDiameter}px`,
             height: `${circleDiameter}px`,
             marginLeft: `-${circleDiameter - circleDiameter / 2}px`,
           }}
         ></div>
-        <span className="font-semibold absolute left-5">{percent}%</span>
 
-        <div
-          onClick={handleClick}
-          className="flex w-[13rem] justify-between items-center z-10"
-        >
-          {datesRow.map((date, i) => (
+        <span className="absolute left-5 font-semibold">{percent}%</span>
+
+        <div onClick={(e) => e.stopPropagation()} className={checkboxRowStyle}>
+          {datesRow.map((date) => (
             <Checkbox
               key={date}
               id={habit.id}
@@ -81,7 +86,8 @@ export const Habit = (props: IHabit) => {
           ))}
         </div>
       </div>
-      <div className="absolute bottom-4 text-xl text-left z-10">
+
+      <div className={titleStyle}>
         {props.title.length > 28
           ? props.title.slice(0, 28) + "..."
           : props.title}

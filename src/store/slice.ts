@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IHabit } from "../components/Habit/Habit";
 import { habits } from "../data";
-import { IHabit } from "../types";
 
 interface IInitialState {
   habits: IHabit[];

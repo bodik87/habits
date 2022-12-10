@@ -1,8 +1,6 @@
 import { useNavigate, useOutletContext } from "react-router-dom";
 import { colors } from "../assets/constants";
 
-const colStartClasses = ["col-start-1", "col-start-2", "col-start-3"];
-
 export const Colors = () => {
   const navigate = useNavigate();
   const { setHabitColor } = useOutletContext<any>();
@@ -11,6 +9,8 @@ export const Colors = () => {
     setHabitColor(text);
     navigate(-1);
   };
+
+  const colStartClasses = ["col-start-1", "col-start-2", "col-start-3"];
 
   return (
     <div className="flex justify-center items-center pt-10">
