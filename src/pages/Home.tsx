@@ -1,5 +1,5 @@
 import { noHabits } from "../assets/constants";
-import { Habit } from "../components/Habit";
+import { Habit } from "../components/Habit/Habit";
 import { Header } from "../components/Header/Header";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 

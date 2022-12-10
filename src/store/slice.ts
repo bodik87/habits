@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { habits } from "../data";
-import { IHabitProps } from "../types";
+import { IHabit } from "../types";
 
 interface IInitialState {
-  habits: IHabitProps[];
+  habits: IHabit[];
 }
 
 const initialState: IInitialState = {
@@ -14,7 +14,7 @@ export const habitsSlice = createSlice({
   name: "habits",
   initialState,
   reducers: {
-    addHabit: (state, action: PayloadAction<IHabitProps>) => {
+    addHabit: (state, action: PayloadAction<IHabit>) => {
       state.habits.push(action.payload);
     },
     deleteHabit: (state, action: PayloadAction<Number>) => {

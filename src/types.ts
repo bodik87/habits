@@ -1,4 +1,4 @@
-export interface IHabitProps {
+export interface IHabit {
   color: string;
   title: string;
   repeat: number;

@@ -1,22 +1,16 @@
 import { eachDayOfInterval, format, startOfToday, subDays } from "date-fns";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { IHabitProps } from "../types";
-import { useTypedSelector } from "../hooks/useTypedSelector";
+import { IHabit } from "../../types";
+import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { Checkbox } from "./ui/Checkbox";
 
-export const Habit = ({
-  color,
-  title,
-  repeat,
-  checkedDays,
-  id,
-}: IHabitProps) => {
+export const Habit = (props: IHabit) => {
   const navigate = useNavigate();
   const goToStatistics = (id: number) => navigate(`/statistics/${id}`);
   const handleClick = (event: any) => event.stopPropagation();
 
-  const [goal, setGoal] = useState(repeat);
+  const [goal, setGoal] = useState(props.repeat);
   const [result, setResult] = useState(0);
   const [percent, setPercent] = useState(0);
   const [cardWidth, setCardWidth] = useState(0);
@@ -25,8 +19,8 @@ export const Habit = ({
   const step = Math.ceil((cardWidth * 1.92) / goal);
 
   useEffect(() => {
-    setGoal(repeat);
-    setResult(checkedDays.length);
+    setGoal(props.repeat);
+    setResult(props.checkedDays.length);
     setPercent(Math.ceil((result / goal) * 100));
     setCardWidth(cardWidthRef.current.clientWidth);
     setCircleDiameter(step * result);
@@ -51,19 +45,19 @@ export const Habit = ({
   });
 
   const { habits } = useTypedSelector((state) => state.habits);
-  const habit = habits.filter((habit) => habit.id === Number(id))[0];
+  const habit = habits.filter((habit) => habit.id === Number(props.id))[0];
 
   // Styles
 
   return (
     <div
       ref={cardWidthRef}
-      onClick={() => goToStatistics(id)}
+      onClick={() => goToStatistics(props.id)}
       className={`h-28 max-w-[35rem] bg-myWhite py-5 px-4 rounded-xl relative overflow-hidden`}
     >
       <div className="flex items-center h-[10px] mt-[6px] justify-end">
         <div
-          className={`bg-${color} left-8 flex justify-center items-center rounded-full absolute z-0 transition-all duration-500`}
+          className={`bg-${props.color} left-8 flex justify-center items-center rounded-full absolute z-0 transition-all duration-500`}
           style={{
             width: `${circleDiameter}px`,
             height: `${circleDiameter}px`,
@@ -88,7 +82,9 @@ export const Habit = ({
         </div>
       </div>
       <div className="absolute bottom-4 text-xl text-left z-10">
-        {title.length > 28 ? title.slice(0, 28) + "..." : title}
+        {props.title.length > 28
+          ? props.title.slice(0, 28) + "..."
+          : props.title}
       </div>
     </div>
   );
