@@ -1,7 +1,7 @@
 import { noHabits } from "../assets/constants";
 import { Habit } from "../components/Habit";
-import { Header } from "../components/ui/Header/Header";
-import { useTypedSelector } from "../components/hooks/useTypedSelector";
+import { Header } from "../components/Header/Header";
+import { useTypedSelector } from "../hooks/useTypedSelector";
 
 export const Home = () => {
   const { habits } = useTypedSelector((state) => state.habits);

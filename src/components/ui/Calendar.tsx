@@ -11,7 +11,7 @@ import {
   startOfToday,
 } from "date-fns";
 import { useState } from "react";
-import { useTypedSelector } from "../hooks/useTypedSelector";
+import { useTypedSelector } from "../../hooks/useTypedSelector";
 
 const checkedDays = [
   "2022-12-07",

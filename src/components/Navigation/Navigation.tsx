@@ -12,7 +12,7 @@ export const Navigation = () => {
 
   // Styles
   const wrapperStyle =
-    "fixed w-full h-14 bottom-0 bg-white/60 border-t-2 backdrop-blur-md z-50";
+    "fixed w-full h-14 px-4 bottom-0 bg-white/60 border-t-2 backdrop-blur-md z-50";
   const btnsRowStyle =
     "max-w-[43rem] mx-auto h-14 px-6 flex justify-between items-center";
 

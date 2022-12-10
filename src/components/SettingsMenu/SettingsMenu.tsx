@@ -1,6 +1,6 @@
-import Modal from "../../Modal";
 import useModal from "../../hooks/useModal";
-import { resetAll } from "../../../utils/resetAll";
+import { resetAll } from "../../utils/resetAll";
+import Modal from "../Modal";
 import { SettingsItem } from "./ui/SettingsItem";
 
 interface SettingsMenuProps {

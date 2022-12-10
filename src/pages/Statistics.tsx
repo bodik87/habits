@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { statisticsConstants } from "../assets/constants";
 import { CardLayout } from "../components/ui/CardLayout";
-import { useTypedSelector } from "../components/hooks/useTypedSelector";
+import { useTypedSelector } from "../hooks/useTypedSelector";
 import Calendar from "../components/ui/Calendar";
 
 export const Statistics = () => {

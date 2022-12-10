@@ -2,7 +2,7 @@ import { eachDayOfInterval, format, startOfToday, subDays } from "date-fns";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IHabitProps } from "../types";
-import { useTypedSelector } from "./hooks/useTypedSelector";
+import { useTypedSelector } from "../hooks/useTypedSelector";
 import { Checkbox } from "./ui/Checkbox";
 
 export const Habit = ({
@@ -53,11 +53,13 @@ export const Habit = ({
   const { habits } = useTypedSelector((state) => state.habits);
   const habit = habits.filter((habit) => habit.id === Number(id))[0];
 
+  // Styles
+
   return (
     <div
       ref={cardWidthRef}
       onClick={() => goToStatistics(id)}
-      className={`h-28 bg-myWhite py-5 px-4 rounded-xl relative overflow-hidden`}
+      className={`h-28 max-w-[35rem] bg-myWhite py-5 px-4 rounded-xl relative overflow-hidden`}
     >
       <div className="flex items-center h-[10px] mt-[6px] justify-end">
         <div

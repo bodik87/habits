@@ -5,8 +5,8 @@ import {
   statisticsConstants,
 } from "../assets/constants";
 import { useState } from "react";
-import { useActions } from "../components/hooks/useActions";
-import { useTypedSelector } from "../components/hooks/useTypedSelector";
+import { useActions } from "../hooks/useActions";
+import { useTypedSelector } from "../hooks/useTypedSelector";
 import { Link, Outlet, useLocation } from "react-router-dom";
 
 export const Create = () => {

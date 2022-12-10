@@ -6,8 +6,8 @@ import {
   goals,
   statisticsConstants,
 } from "../assets/constants";
-import { useTypedSelector } from "../components/hooks/useTypedSelector";
-import { useActions } from "../components/hooks/useActions";
+import { useTypedSelector } from "../hooks/useTypedSelector";
+import { useActions } from "../hooks/useActions";
 import { useState } from "react";
 import { colors } from "../assets/constants";
 
