@@ -44,7 +44,7 @@ export const Navigation = () => {
     <>
       {location.pathname === "/" && (
         <>
-          <div className="fixed w-full left-0 right-0 bg-white/60 border-t-2 backdrop-blur-md bottom-0 h-14 z-20">
+          <div className="fixed w-full left-0 right-0 bg-white/60 border-t-2 backdrop-blur-md bottom-0 h-14 z-50">
             <div className="flex justify-between items-center max-w-[43rem] mx-auto h-14 px-8 md:px-[4.5rem]">
               <div onClick={toggleSettings}>
                 <Burger />
@@ -60,11 +60,11 @@ export const Navigation = () => {
             onClick={closeSettings}
             className={`${
               visibleSettings ? "block" : "hidden"
-            } max-w-[43rem] mx-auto px-4 bg-white/10 absolute top-0 left-0 right-0 bottom-0 z-10 backdrop-blur-sm`}
+            } max-w-[43rem] mx-auto px-4 bg-white/10 fixed top-0 left-0 right-0 bottom-0 z-40 backdrop-blur-sm`}
           >
             <div
               onClick={handleClick}
-              className="bg-slate-300 px-8 pt-10 pb-24 rounded-t-3xl fixed bottom-0 z-10 shadow-2xl"
+              className="bg-slate-300 px-8 pt-10 pb-24 rounded-t-3xl fixed bottom-0 shadow-2xl"
             >
               <div className="flex flex-col gap-6">
                 <div

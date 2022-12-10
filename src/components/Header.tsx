@@ -43,7 +43,7 @@ export const Header = () => {
   });
 
   return (
-    <div className="sticky max-w-[43rem] mx-auto bg-white/60 backdrop-blur-md top-0 h-28 z-10 px-8 md:px-[4.5rem] flex justify-between items-center">
+    <div className="sticky max-w-[35rem] mx-auto bg-white/60 backdrop-blur-md top-0 h-28 z-30 px-6 flex justify-between items-center">
       <p className=" font-medium text-3xl">Habit</p>
       <div className="flex w-[13rem] justify-between">
         {datesRow.map((item, i) => (
