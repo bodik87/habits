@@ -1,5 +1,5 @@
 import { Outlet, useLocation } from "react-router-dom";
-import { Navigation } from "./components/Navigation";
+import { Navigation } from "./components/ui/Navigation/Navigation";
 import { Home } from "./pages/Home";
 
 function App() {

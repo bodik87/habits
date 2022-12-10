@@ -1,5 +1,6 @@
+import { noHabits } from "../assets/constants";
 import { Habit } from "../components/Habit";
-import { Header } from "../components/Header";
+import { Header } from "../components/ui/Header/Header";
 import { useTypedSelector } from "../components/hooks/useTypedSelector";
 
 export const Home = () => {
@@ -21,7 +22,7 @@ export const Home = () => {
             />
           ))
         ) : (
-          <div className="px-4">Привычки отсутствуют</div>
+          <span className="mt-8 text-center">{noHabits}</span>
         )}
       </div>
     </>

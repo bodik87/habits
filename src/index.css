@@ -23,3 +23,24 @@ body {
   /* max-width: 800px; */
   min-height: 100vh;
 }
+
+.modal-overlay {
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  display: block;
+  background: white;
+  width: 300px;
+  height: 300px;
+  padding: 1rem;
+  border-radius: 1rem;
+}

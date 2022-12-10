@@ -1,3 +1,5 @@
+export const noHabits = "There are no habits 🙄 Add the first one.";
+
 export const colors = [
   "myRed",
   "myGreen",
