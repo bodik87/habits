@@ -21,7 +21,7 @@ export const Edit = () => {
 
   const [titleValue, setTitleValue] = useState(habit.title);
   const [habitColor, setHabitColor] = useState(habit.color);
-  const [goal, setGoal] = useState(habit.repeat);
+  const [goal, setGoal] = useState(habit.goal);
 
   const handleClick = (id: any) => {
     deleteHabit(Number(id));
@@ -39,7 +39,7 @@ export const Edit = () => {
       id: habit.id,
       title: titleValue,
       color: habitColor,
-      repeat: goal,
+      goal: goal,
       checkedDays: habit.checkedDays,
     };
   };

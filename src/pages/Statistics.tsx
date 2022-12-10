@@ -9,7 +9,7 @@ export const Statistics = () => {
   const { habits } = useTypedSelector((state) => state.habits);
   const habit = habits.filter((habit) => habit.id === Number(id))[0];
 
-  const percent = Math.ceil((habit.checkedDays.length / habit.repeat) * 100);
+  const percent = Math.ceil((habit.checkedDays.length / habit.goal) * 100);
 
   const sectionStyle = `flex w-full flex-col px-6 pb-6`;
   const sectionTitleStyle = `uppercase text-sm font-medium`;
@@ -33,7 +33,7 @@ export const Statistics = () => {
           <span className="text-6xl mt-1">{percent}%</span>
           <div>
             <div className={`text-base font-medium mt-1`}>
-              {statisticsConstants.goal}: {habit.repeat} times
+              {statisticsConstants.goal}: {habit.goal} times
             </div>
             <div className={`text-base font-medium mt-3`}>
               {statisticsConstants.сompleted}: {habit.checkedDays.length} times

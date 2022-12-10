@@ -1,7 +1,7 @@
 export interface IHabit {
   color: string;
   title: string;
-  repeat: number;
+  goal: number;
   checkedDays: string[];
   id: number;
 }

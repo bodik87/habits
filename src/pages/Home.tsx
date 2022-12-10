@@ -17,7 +17,7 @@ export const Home = () => {
               id={habit.id}
               title={habit.title}
               color={habit.color}
-              repeat={habit.repeat}
+              goal={habit.goal}
               checkedDays={habit.checkedDays}
             />
           ))

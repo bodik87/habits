@@ -23,7 +23,7 @@ export const Create = () => {
       id: habits.length + 1,
       title: titleValue,
       color: habitColor,
-      repeat: goal,
+      goal: goal,
       checkedDays: [],
     };
   };
@@ -66,7 +66,6 @@ export const Create = () => {
             />
           </div>
 
-          {/* Repeat */}
           <div
             className={`px-6 py-6 border-b border-black/10 flex flex-col gap-4`}
           >

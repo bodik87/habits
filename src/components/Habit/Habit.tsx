@@ -10,7 +10,7 @@ export const Habit = (props: IHabit) => {
   const goToStatistics = (id: number) => navigate(`/statistics/${id}`);
   const handleClick = (event: any) => event.stopPropagation();
 
-  const [goal, setGoal] = useState(props.repeat);
+  const [goal, setGoal] = useState(props.goal);
   const [result, setResult] = useState(0);
   const [percent, setPercent] = useState(0);
   const [cardWidth, setCardWidth] = useState(0);
@@ -19,7 +19,7 @@ export const Habit = (props: IHabit) => {
   const step = Math.ceil((cardWidth * 1.92) / goal);
 
   useEffect(() => {
-    setGoal(props.repeat);
+    setGoal(props.goal);
     setResult(props.checkedDays.length);
     setPercent(Math.ceil((result / goal) * 100));
     setCardWidth(cardWidthRef.current.clientWidth);
