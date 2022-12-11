@@ -28,7 +28,7 @@ export const SettingsMenu = ({
     "fixed top-0 left-0 right-0 bottom-0 max-w-[43rem] mx-auto px-4 backdrop-blur-sm z-40";
 
   const settingsWrapperStyle =
-    "fixed bottom-0 px-8 pt-10 pb-24 flex flex-col gap-6 bg-slate-300 rounded-t-3xl shadow-2xl";
+    "fixed bottom-0 px-8 pt-10 pb-24 flex flex-col gap-6 bg-slate-400 dark:bg-myWhite rounded-t-3xl shadow-2xl";
 
   function myFunction() {
     const element = document.documentElement;
