@@ -1,4 +1,3 @@
-import { delay } from "@reduxjs/toolkit/dist/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import useModal from "../../hooks/useModal";
 import { resetAll } from "../../utils/resetAll";
@@ -18,10 +17,10 @@ export const SettingsMenu = ({
 
   // Styles
   const overlayStyle =
-    "fixed top-0 left-0 right-0 bottom-0 max-w-[43rem] mx-auto px-4 bg-white/10 backdrop-blur-sm z-40";
+    "fixed top-0 left-0 right-0 bottom-0 max-w-[43rem] mx-auto px-4 bg-black/40 backdrop-blur-sm z-40";
 
   const settingsWrapperStyle =
-    "fixed bottom-0 px-8 pt-10 pb-24 flex flex-col gap-6 bg-slate-300 rounded-t-3xl shadow-2xl";
+    "fixed bottom-0 px-8 pt-10 pb-24 flex flex-col gap-6 bg-myWhite rounded-t-3xl shadow-2xl";
 
   return (
     <>
