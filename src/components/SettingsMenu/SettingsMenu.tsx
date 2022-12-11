@@ -34,6 +34,7 @@ export const SettingsMenu = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
             onClick={closeSettings}
             className={overlayStyle}
           >
@@ -41,7 +42,7 @@ export const SettingsMenu = ({
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
               exit={{ y: "100%" }}
-              transition={{ type: "spring", bounce: 0.25 }}
+              transition={{ duration: 0.3, type: "spring", bounce: 0.25 }}
               onClick={(e) => e.stopPropagation()}
               className={settingsWrapperStyle}
             >
