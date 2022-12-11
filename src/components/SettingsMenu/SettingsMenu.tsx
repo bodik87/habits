@@ -2,8 +2,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { modalTexts } from "../../assets/constants";
 import useModal from "../../hooks/useModal";
-import { resetAll } from "../../utils/resetAll";
 import Modal from "../Modal";
+import { resetAll } from "../../utils/resetAll";
 import { SettingsItem } from "./SettingsItem";
 
 interface SettingsMenuProps {
