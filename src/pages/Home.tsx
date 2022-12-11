@@ -9,7 +9,7 @@ export const Home = () => {
   return (
     <>
       <Header />
-      <div className="w-full px-4 pb-20 max-w-[38rem] mx-auto flex flex-col gap-4">
+      <div className="w-full px-4 pb-20 max-w-[38rem] mx-auto flex flex-col items-center gap-4">
         {habits.length ? (
           habits.map((habit) => (
             <Habit

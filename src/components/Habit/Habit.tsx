@@ -48,7 +48,7 @@ export const Habit = (props: IHabit) => {
 
   // Styles
   const habitWrapper =
-    "h-28 max-w-[35rem] py-5 px-4 bg-myWhite rounded-xl relative overflow-hidden";
+    "h-28 max-w-[35rem] w-full py-5 px-4 bg-myWhite dark:bg-darkSecond rounded-xl relative overflow-hidden";
   const checkboxRowStyle = "flex w-[13rem] justify-between items-center z-10";
   const circleStyle =
     "absolute left-8 flex justify-center items-center rounded-full transition-all duration-500 z-0";

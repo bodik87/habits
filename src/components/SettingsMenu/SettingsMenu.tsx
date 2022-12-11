@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import { modalTexts } from "../../assets/constants";
 import useModal from "../../hooks/useModal";
 import { resetAll } from "../../utils/resetAll";
@@ -15,6 +16,7 @@ export const SettingsMenu = ({
   visibleSettings,
 }: SettingsMenuProps) => {
   const { isOpen, toggle } = useModal();
+  const [darkMode, setDarkMode] = useState(true);
 
   const closeModal = () => {
     toggle();
@@ -54,7 +56,7 @@ export const SettingsMenu = ({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             onClick={closeSettings}
-            className={overlayStyle}
+            className={`${overlayStyle} `}
           >
             <motion.div
               initial={{ y: "100%" }}
@@ -62,12 +64,14 @@ export const SettingsMenu = ({
               exit={{ y: "100%" }}
               transition={{ duration: 0.3, type: "spring", bounce: 0.25 }}
               onClick={(e) => e.stopPropagation()}
-              className={settingsWrapperStyle}
+              className={`${settingsWrapperStyle}`}
             >
               {/* <SettingsItem onClick={() => {}}>
                 Sort by name | date
               </SettingsItem> */}
-              {/* <SettingsItem onClick={() => {}}>Dark Theme</SettingsItem> */}
+              <SettingsItem onClick={() => setDarkMode(!darkMode)}>
+                Dark Theme
+              </SettingsItem>
 
               <SettingsItem onClick={toggle}>DELETE ALL 😨</SettingsItem>
               <SettingsItem onClick={closeSettings}>

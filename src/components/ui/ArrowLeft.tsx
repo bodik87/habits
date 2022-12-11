@@ -2,6 +2,7 @@ import { SVGProps } from "react";
 
 export const ArrowLeft = (props: SVGProps<SVGSVGElement>) => (
   <svg
+    className="dark:invert"
     width={21.213}
     height={21.213}
     fill="none"

@@ -26,7 +26,9 @@ export const Statistics = () => {
       }
       habitColor={`bg-${habit.color}`}
     >
-      <div className={`${sectionStyle} py-8 bg-${habit.color}`}>
+      <div
+        className={`${sectionStyle} py-8 bg-${habit.color} md:rounded-b-2xl`}
+      >
         <span className={`${sectionTitleStyle}`}>
           {statisticsConstants.overview}
         </span>
@@ -44,7 +46,7 @@ export const Statistics = () => {
       </div>
 
       <div className={sectionStyle}>
-        <span className={`${sectionTitleStyle} pt-6`}>
+        <span className={`${sectionTitleStyle} pt-6 dark:text-myWhite`}>
           {statisticsConstants.history}
         </span>
       </div>

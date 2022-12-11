@@ -54,7 +54,7 @@ export const Create = () => {
       ) : (
         <>
           <div
-            className={`flex w-full flex-col items-center bg-${habitColor} py-8 pb-6`}
+            className={`flex w-full flex-col items-center bg-${habitColor} py-8 pb-6 md:rounded-b-2xl`}
           >
             <span className={sectionTitleStyle}>
               {createConstants.habitTitle}
@@ -71,7 +71,7 @@ export const Create = () => {
           <GoalSection goal={goal} setGoal={setGoal} />
 
           <div
-            className={`flex w-full flex-col px-6 py-4 border-b border-black/10`}
+            className={`flex w-full flex-col px-6 py-4 border-b border-black/10 dark:text-myWhite dark:border-white/10`}
           >
             <Link to="/create/colors">
               <div className="flex justify-between items-center h-10">

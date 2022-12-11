@@ -13,6 +13,8 @@ module.exports = {
         myBlue: "#53D0F0",
         myWhite: "#F8F8F8",
         myDark: "#050505",
+        darkPrimary: "#1D2125",
+        darkSecond: "#3D4144",
       },
       zIndex: {
         "z-2": "2",

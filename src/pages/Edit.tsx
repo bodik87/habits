@@ -88,7 +88,7 @@ export const Edit = () => {
         rightBtnFunction={onClick}
       >
         <div
-          className={`flex w-full flex-col items-center bg-${habitColor} py-8 pb-6`}
+          className={`flex w-full flex-col items-center bg-${habitColor} py-8 pb-6 md:rounded-b-2xl`}
         >
           <span className={sectionTitleStyle}>{editConstants.rename}</span>
           <input
@@ -101,7 +101,7 @@ export const Edit = () => {
 
         <GoalSection goal={goal} setGoal={setGoal} />
 
-        <div className={`px-6 py-6 border-b border-black/10`}>
+        <div className={`px-6 py-6 border-b border-black/10 dark:text-myWhite`}>
           <div className={sectionTitleStyle}>{createConstants.chooseColor}</div>
 
           <div className="flex justify-between mt-4">

@@ -5,8 +5,8 @@ interface DateGroupProps {
 }
 
 export const DateGroup = (props: DateGroupProps) => {
-  const currentDayStyle = "text-myDark font-semibold";
-  const previousDaysStyle = "text-black/70 font-medium";
+  const currentDayStyle = "text-myDark font-semibold dark:text-myWhite";
+  const previousDaysStyle = "text-black/70 font-medium dark:text-myWhite";
   return (
     <div className="flex flex-col items-center justify-center">
       <div

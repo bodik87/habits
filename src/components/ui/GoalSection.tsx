@@ -13,7 +13,9 @@ interface GoalProps {
 
 export const GoalSection = (props: GoalProps) => {
   return (
-    <div className={`px-6 py-6 border-b border-black/10 flex flex-col gap-4`}>
+    <div
+      className={`px-6 py-6 border-b border-black/10 flex flex-col gap-4 dark:border-white/10 dark:text-myWhite`}
+    >
       <span className={sectionTitleStyle}>{statisticsConstants.goal}</span>
 
       <div className="flex flex-col items-center mb-1">
@@ -44,7 +46,7 @@ export const GoalSection = (props: GoalProps) => {
           <div
             key={goalItem}
             onClick={() => props.setGoal(goalItem)}
-            className={`w-14 h-10 border-2 border-black/70 text-lg rounded-full flex justify-center  items-center cursor-pointer hover:brightness-105 transition-all duration-300`}
+            className={`w-14 h-10 border-2 border-black/70 text-lg rounded-full flex justify-center  items-center cursor-pointer hover:brightness-105 transition-all duration-300 dark:border-myWhite`}
           >
             {goalItem}
           </div>
