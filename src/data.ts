@@ -11,7 +11,7 @@ export const habits = [
     title: "Lern Something New",
     color: "myYellow",
     goal: 5,
-    checkedDays: ["2022-12-08"],
+    checkedDays: [],
   },
   {
     id: 3,
