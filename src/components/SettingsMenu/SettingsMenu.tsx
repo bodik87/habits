@@ -1,3 +1,5 @@
+import { delay } from "@reduxjs/toolkit/dist/utils";
+import { motion, AnimatePresence } from "framer-motion";
 import useModal from "../../hooks/useModal";
 import { resetAll } from "../../utils/resetAll";
 import Modal from "../Modal";
@@ -27,25 +29,38 @@ export const SettingsMenu = ({
         <div>Yaay!!!</div>
       </Modal>
 
-      <div
-        onClick={closeSettings}
-        className={`${overlayStyle} ${visibleSettings ? "block" : "hidden"}`}
-      >
-        <div
-          onClick={(e) => e.stopPropagation()}
-          className={settingsWrapperStyle}
-        >
-          <SettingsItem onClick={() => {}}>Sort by name | date</SettingsItem>
-          <SettingsItem onClick={resetAll}>RESET ALL 😨</SettingsItem>
-          <SettingsItem onClick={() => {}}>Dark Theme</SettingsItem>
-          <SettingsItem onClick={toggle}>Open Modal</SettingsItem>
-          <SettingsItem onClick={closeSettings}>
-            <a href="https://bodik87.github.io/index.html" target="_blank">
-              To my portfolio 😊
-            </a>
-          </SettingsItem>
-        </div>
-      </div>
+      <AnimatePresence>
+        {visibleSettings && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={closeSettings}
+            className={overlayStyle}
+          >
+            <motion.div
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "100%" }}
+              transition={{ type: "spring", bounce: 0.25 }}
+              onClick={(e) => e.stopPropagation()}
+              className={settingsWrapperStyle}
+            >
+              <SettingsItem onClick={() => {}}>
+                Sort by name | date
+              </SettingsItem>
+              <SettingsItem onClick={resetAll}>RESET ALL 😨</SettingsItem>
+              <SettingsItem onClick={() => {}}>Dark Theme</SettingsItem>
+              <SettingsItem onClick={toggle}>Open Modal</SettingsItem>
+              <SettingsItem onClick={closeSettings}>
+                <a href="https://bodik87.github.io/index.html" target="_blank">
+                  To my portfolio 😊
+                </a>
+              </SettingsItem>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
