@@ -1,5 +1,5 @@
 import { CardLayout } from "../components/ui/CardLayout";
-import { createConstants } from "../assets/constants";
+import { createConstants, sectionTitleStyle } from "../assets/constants";
 import { useEffect, useRef, useState } from "react";
 import { useActions } from "../hooks/useActions";
 import { useTypedSelector } from "../hooks/useTypedSelector";
@@ -56,7 +56,7 @@ export const Create = () => {
           <div
             className={`flex w-full flex-col bg-${habitColor} px-8 pt-10 pb-4`}
           >
-            <span className="uppercase text-sm font-medium">
+            <span className={sectionTitleStyle}>
               {createConstants.habitTitle}
             </span>
             <input
@@ -71,11 +71,13 @@ export const Create = () => {
           <GoalSection goal={goal} setGoal={setGoal} />
 
           <div
-            className={`flex w-full flex-col px-8 py-4 border-b border-black/10`}
+            className={`flex w-full flex-col px-6 py-4 border-b border-black/10`}
           >
             <Link to="/create/colors">
               <div className="flex justify-between items-center h-10">
-                <span>{createConstants.chooseColor}</span>
+                <span className={sectionTitleStyle}>
+                  {createConstants.chooseColor}
+                </span>
                 <span
                   className={`w-10 h-10 rounded-full flex justify-center items-center bg-${habitColor} cursor-pointer hover:scale-105 transition-all duration-200`}
                 ></span>

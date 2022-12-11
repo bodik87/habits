@@ -60,7 +60,7 @@ export default function Calendar({ id }: ICalendarProps) {
   }
 
   return (
-    <div className="mt-1 px-6 mx-auto">
+    <div className="px-6 mx-auto">
       <div className="flex items-center justify-between">
         <button onClick={previousMonth} className="opacity-80">
           <ArrowLeft />

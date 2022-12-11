@@ -50,3 +50,7 @@ export const editConstants = {
   deleteHabit: "Delete habit",
   inputTitlePlaceholder: "Enter a new name",
 };
+
+// Styles
+export const sectionStyle = `flex w-full flex-col px-6 pb-6`;
+export const sectionTitleStyle = `uppercase text-sm font-medium`;

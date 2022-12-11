@@ -1,5 +1,9 @@
 import { useParams } from "react-router-dom";
-import { statisticsConstants } from "../assets/constants";
+import {
+  sectionStyle,
+  sectionTitleStyle,
+  statisticsConstants,
+} from "../assets/constants";
 import { CardLayout } from "../components/ui/CardLayout";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 import Calendar from "../components/ui/Calendar";
@@ -10,9 +14,6 @@ export const Statistics = () => {
   const habit = habits.filter((habit) => habit.id === Number(id))[0];
 
   const percent = Math.ceil((habit.checkedDays.length / habit.goal) * 100);
-
-  const sectionStyle = `flex w-full flex-col px-6 pb-6`;
-  const sectionTitleStyle = `uppercase text-sm font-medium`;
 
   return (
     <CardLayout
