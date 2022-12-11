@@ -4,12 +4,13 @@ import {
   goals,
   statisticsConstants,
 } from "../assets/constants";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useActions } from "../hooks/useActions";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 import { Link, Outlet, useLocation } from "react-router-dom";
 
 export const Create = () => {
+  const ref = useRef<any>();
   const location = useLocation();
   const [habitColor, setHabitColor] = useState(createConstants.defaultColor);
   const [titleValue, setTitleValue] = useState("");
@@ -17,6 +18,10 @@ export const Create = () => {
 
   const { habits } = useTypedSelector((state) => state.habits);
   const { addHabit } = useActions();
+
+  useEffect(() => {
+    ref.current.focus();
+  }, []);
 
   const createNewHabit = (): any => {
     return {
@@ -59,6 +64,7 @@ export const Create = () => {
               {createConstants.habitTitle}
             </span>
             <input
+              ref={ref}
               className="bg-transparent placeholder:text-black/30 text-xl outline-none mt-2"
               value={titleValue}
               onChange={(e) => setTitleValue(e.target.value)}
@@ -71,13 +77,14 @@ export const Create = () => {
           >
             <span className="font-medium">{statisticsConstants.goal}</span>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center justify-center gap-2">
               <div className="flex gap-4 items-center mb-2">
                 <span
                   className="cursor-pointer"
                   onClick={() => setGoal(goal - 1)}
                 >
                   <svg
+                    className="opacity-70"
                     width="21.213203"
                     height="21.213196"
                     viewBox="0 0 21.2132 21.2132"
@@ -102,6 +109,7 @@ export const Create = () => {
                   onClick={() => setGoal(goal + 1)}
                 >
                   <svg
+                    className="opacity-70"
                     width="21.213203"
                     height="21.213196"
                     viewBox="0 0 21.2132 21.2132"
@@ -128,7 +136,7 @@ export const Create = () => {
                 <div
                   key={goalItem}
                   onClick={() => setGoal(goalItem)}
-                  className={`w-14 h-10 text-lg rounded-full flex justify-center bg-${habitColor} items-center cursor-pointer hover:brightness-105 transition-all duration-300`}
+                  className={`w-14 h-10 border-2 border-black/70 text-lg rounded-full flex justify-center  items-center cursor-pointer hover:brightness-105 transition-all duration-300`}
                 >
                   {goalItem}
                 </div>
