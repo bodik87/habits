@@ -61,6 +61,7 @@ export const modalTexts = {
   darkMode: "Dark mode",
   lightMode: "Dark mode OFF",
   portfolio: "Author's portfolio",
+  checkPreviousDay: "Do you really want to mark the past day?",
 };
 
 // Styles
