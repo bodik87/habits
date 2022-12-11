@@ -15,7 +15,7 @@ export const habits = [
   },
   {
     id: 3,
-    title: "New",
+    title: "Create new habit",
     color: "myRed",
     goal: 10,
     checkedDays: [],
