@@ -8,8 +8,10 @@ import {
 } from "../assets/constants";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 import { useActions } from "../hooks/useActions";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { colors } from "../assets/constants";
+import { ArrowRight } from "../components/ui/ArrowRight";
+import { ArrowLeft } from "../components/ui/ArrowLeft";
 
 export const Edit = () => {
   const { habits } = useTypedSelector((state) => state.habits);
@@ -79,45 +81,11 @@ export const Edit = () => {
         <div className="flex items-center gap-2">
           <div className="flex gap-4 items-center mb-2">
             <span className="cursor-pointer" onClick={() => setGoal(goal - 1)}>
-              <svg
-                width="21.213203"
-                height="21.213196"
-                viewBox="0 0 21.2132 21.2132"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M2.12133 8.48528L12.0208 18.3848C12.4113 18.7753 12.4113 19.4085 12.0208 19.799L11.3137 20.5061C10.9232 20.8966 10.29 20.8966 9.8995 20.5061L7.62939e-06 10.6066L2.12133 8.48528Z"
-                  fillRule="evenodd"
-                  fill="#050505"
-                />
-                <path
-                  d="M3.8147e-06 10.6066L9.8995 0.707108C10.29 0.316574 10.9232 0.316574 11.3137 0.707108L12.0208 1.41422C12.4113 1.80473 12.4113 2.4379 12.0208 2.82843L2.12132 12.7279L3.8147e-06 10.6066Z"
-                  fillRule="evenodd"
-                  fill="#050505"
-                />
-              </svg>
+              <ArrowLeft />
             </span>
             <span className="font-medium text-xl">{goal} times</span>
             <span className="cursor-pointer" onClick={() => setGoal(goal + 1)}>
-              <svg
-                width="21.213203"
-                height="21.213196"
-                viewBox="0 0 21.2132 21.2132"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M19.0919 12.7279L9.19238 2.82841C8.80186 2.43788 8.80186 1.80472 9.19238 1.4142L9.89949 0.707092C10.29 0.316559 10.9232 0.316559 11.3137 0.707092L21.2132 10.6066L19.0919 12.7279Z"
-                  fillRule="evenodd"
-                  fill="#050505"
-                />
-                <path
-                  d="M21.2132 10.6066L11.3137 20.5061C10.9232 20.8966 10.29 20.8966 9.89949 20.5061L9.19239 19.799C8.80186 19.4085 8.80186 18.7753 9.19239 18.3848L19.0919 8.48528L21.2132 10.6066Z"
-                  fillRule="evenodd"
-                  fill="#050505"
-                />
-              </svg>
+              <ArrowRight />
             </span>
           </div>
         </div>
