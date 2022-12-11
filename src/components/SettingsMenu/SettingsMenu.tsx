@@ -30,6 +30,13 @@ export const SettingsMenu = ({
   const settingsWrapperStyle =
     "fixed bottom-0 px-8 pt-10 pb-24 flex flex-col gap-6 bg-slate-300 rounded-t-3xl shadow-2xl";
 
+  function myFunction() {
+    const element = document.documentElement;
+    element.classList.toggle("dark");
+    setDarkMode(!darkMode);
+    closeSettings();
+  }
+
   return (
     <>
       <Modal isOpen={isOpen} toggle={toggle}>
@@ -69,14 +76,14 @@ export const SettingsMenu = ({
               {/* <SettingsItem onClick={() => {}}>
                 Sort by name | date
               </SettingsItem> */}
-              <SettingsItem onClick={() => setDarkMode(!darkMode)}>
-                Dark Theme
+              <SettingsItem onClick={myFunction}>
+                {darkMode ? modalTexts.lightMode : modalTexts.darkMode} 🌗
               </SettingsItem>
 
               <SettingsItem onClick={toggle}>DELETE ALL 😨</SettingsItem>
               <SettingsItem onClick={closeSettings}>
                 <a href="https://bodik87.github.io/index.html" target="_blank">
-                  To my portfolio 😊
+                  {modalTexts.portfolio} 😊
                 </a>
               </SettingsItem>
             </motion.div>

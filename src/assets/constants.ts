@@ -58,6 +58,9 @@ export const modalTexts = {
   deleteHabit: "Delete habit",
   deleteHabitQuestion: "Do you really want to delete this habit?",
   createHabitQuestion: "Cancel the habit creation?",
+  darkMode: "Dark mode",
+  lightMode: "Dark mode OFF",
+  portfolio: "Author's portfolio",
 };
 
 // Styles
