@@ -93,7 +93,7 @@ export const Edit = () => {
 
       <div className={sectionStyle}>
         <button
-          className={`text-xl text-center pt-6 text-myRed`}
+          className={`text-xl text-center pt-12 text-myRed`}
           onClick={() => handleClick(id)}
         >
           {editConstants.deleteHabit}
