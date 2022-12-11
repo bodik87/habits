@@ -8,7 +8,7 @@ import {
 } from "../assets/constants";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 import { useActions } from "../hooks/useActions";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { colors } from "../assets/constants";
 
 export const Edit = () => {
@@ -17,7 +17,7 @@ export const Edit = () => {
   const habit = habits.filter((habit) => habit.id === Number(id))[0];
   const navigate = useNavigate();
   const goHome = () => navigate("/");
-  const { deleteHabit, addHabit } = useActions();
+  const { deleteHabit, updateHabit } = useActions();
 
   const [titleValue, setTitleValue] = useState(habit.title);
   const [habitColor, setHabitColor] = useState(habit.color);
@@ -34,23 +34,20 @@ export const Edit = () => {
     setHabitColor(text);
   };
 
-  const createNewHabit = (): any => {
+  const updateCurrentHabit = (): any => {
     return {
       id: habit.id,
       title: titleValue,
       color: habitColor,
       goal: goal,
-      checkedDays: habit.checkedDays,
     };
   };
 
-  const newHabit = createNewHabit();
+  const updatedHabit = updateCurrentHabit();
 
   const onClick = () => {
     if (titleValue.trim().length) {
-      deleteHabit(Number(id));
-      addHabit(newHabit);
-      goHome();
+      updateHabit(updatedHabit);
     }
   };
 
@@ -61,7 +58,7 @@ export const Edit = () => {
       leftLinkPath={`/statistics/${id}`}
       rightLinkPath="/"
       title={
-        habit.title.length > 18 ? habit.title.slice(0, 18) + "..." : habit.title
+        habit.title.length > 20 ? habit.title.slice(0, 20) + "..." : habit.title
       }
       habitColor={`bg-${habitColor}`}
       rightBtnFunction={onClick}

@@ -39,5 +39,14 @@ export const habitsSlice = createSlice({
           : habit
       );
     },
+    updateHabit: (state, action: PayloadAction<any>) => {
+      state.habits.map(
+        (habit) =>
+          habit.id === action.payload.id &&
+          ((habit.title = action.payload.title),
+          (habit.color = action.payload.color),
+          (habit.goal = action.payload.goal))
+      );
+    },
   },
 });
