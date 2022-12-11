@@ -3,15 +3,12 @@ import { CardLayout } from "../components/ui/CardLayout";
 import {
   createConstants,
   editConstants,
-  goals,
-  statisticsConstants,
+  sectionTitleStyle,
 } from "../assets/constants";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 import { useActions } from "../hooks/useActions";
 import { useState } from "react";
 import { colors } from "../assets/constants";
-import { ArrowRight } from "../components/ui/ArrowRight";
-import { ArrowLeft } from "../components/ui/ArrowLeft";
 import { GoalSection } from "../components/ui/GoalSection";
 
 export const Edit = () => {
@@ -66,12 +63,14 @@ export const Edit = () => {
       habitColor={`bg-${habitColor}`}
       rightBtnFunction={onClick}
     >
-      <div className={`flex w-full flex-col bg-${habitColor} px-6 py-8 pb-6`}>
-        <span className="text-base">{editConstants.rename}</span>
+      <div
+        className={`flex w-full flex-col items-center bg-${habitColor} py-8 pb-6`}
+      >
+        <span className={sectionTitleStyle}>{editConstants.rename}</span>
         <input
           value={titleValue}
           onChange={(e) => setTitleValue(e.target.value)}
-          className="bg-transparent placeholder:text-black/30 text-2xl outline-none mt-2"
+          className="bg-white/50 px-4 py-2 rounded-lg w-fit text-center placeholder:text-black/30 text-2xl outline-none mt-2"
           placeholder={editConstants.inputTitlePlaceholder}
         />
       </div>
@@ -79,9 +78,9 @@ export const Edit = () => {
       <GoalSection goal={goal} setGoal={setGoal} />
 
       <div className={`px-6 py-6 border-b border-black/10`}>
-        <div className="mb-4 font-medium">{createConstants.chooseColor}</div>
+        <div className={sectionTitleStyle}>{createConstants.chooseColor}</div>
 
-        <div className="flex justify-between">
+        <div className="flex justify-between mt-4">
           {colors.map((color) => (
             <span
               key={color}

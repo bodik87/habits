@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import useModal from "../../hooks/useModal";
 import { resetAll } from "../../utils/resetAll";
 import Modal from "../Modal";
-import { SettingsItem } from "./ui/SettingsItem";
+import { SettingsItem } from "./SettingsItem";
 
 interface SettingsMenuProps {
   closeSettings: () => void;
@@ -46,11 +46,11 @@ export const SettingsMenu = ({
               onClick={(e) => e.stopPropagation()}
               className={settingsWrapperStyle}
             >
-              <SettingsItem onClick={() => {}}>
+              {/* <SettingsItem onClick={() => {}}>
                 Sort by name | date
-              </SettingsItem>
+              </SettingsItem> */}
               <SettingsItem onClick={resetAll}>RESET ALL 😨</SettingsItem>
-              <SettingsItem onClick={() => {}}>Dark Theme</SettingsItem>
+              {/* <SettingsItem onClick={() => {}}>Dark Theme</SettingsItem> */}
               <SettingsItem onClick={toggle}>Open Modal</SettingsItem>
               <SettingsItem onClick={closeSettings}>
                 <a href="https://bodik87.github.io/index.html" target="_blank">

@@ -65,7 +65,7 @@ export default function Calendar({ id }: ICalendarProps) {
         <button onClick={previousMonth} className="opacity-80">
           <ArrowLeft />
         </button>
-        <span className="text-xl font-semibold">
+        <span className="text-xl font-medium">
           {format(firstDayCurrentMonth, "MMMM yyyy")}
         </span>
         <button onClick={nextMonth} className="opacity-80">
@@ -106,7 +106,7 @@ export default function Calendar({ id }: ICalendarProps) {
             ) : (
               <div
                 className={`${
-                  isToday(day) && "text-red-500 font-semibold"
+                  isToday(day) && "text-red-500 font-medium"
                 } w-10 h-10 rounded-full flex justify-center items-center`}
               >
                 <time dateTime={format(day, "yyyy-MM-dd")}>

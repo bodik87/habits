@@ -72,7 +72,7 @@ export const Habit = (props: IHabit) => {
           }}
         ></div>
 
-        <span className="absolute left-5 font-semibold">{percent}%</span>
+        <span className="absolute left-5 font-medium">{percent}%</span>
 
         <div onClick={(e) => e.stopPropagation()} className={checkboxRowStyle}>
           {datesRow.map((date) => (

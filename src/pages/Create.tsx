@@ -54,14 +54,14 @@ export const Create = () => {
       ) : (
         <>
           <div
-            className={`flex w-full flex-col bg-${habitColor} px-8 pt-10 pb-4`}
+            className={`flex w-full flex-col items-center bg-${habitColor} py-8 pb-6`}
           >
             <span className={sectionTitleStyle}>
               {createConstants.habitTitle}
             </span>
             <input
               ref={ref}
-              className="bg-transparent placeholder:text-black/30 text-xl outline-none mt-2"
+              className="bg-white/50 px-4 py-2 rounded-lg w-fit text-center placeholder:text-black/30 text-2xl outline-none mt-2"
               value={titleValue}
               onChange={(e) => setTitleValue(e.target.value)}
               placeholder={createConstants.inputTitlePlaceholder}

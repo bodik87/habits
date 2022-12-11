@@ -30,7 +30,7 @@ export const createConstants = {
   defaultColor: "mySalad",
   goal: "Goal",
   chooseColor: "Choose color",
-  inputTitlePlaceholder: "Read a book, Meditate etc.",
+  inputTitlePlaceholder: "Enter a habit name",
 };
 
 export const statisticsConstants = {
