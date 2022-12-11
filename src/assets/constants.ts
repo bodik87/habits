@@ -51,6 +51,15 @@ export const editConstants = {
   inputTitlePlaceholder: "Enter a new name",
 };
 
+export const modalTexts = {
+  deleteAll: "DELETE ALL 😨",
+  deleteAllTitle: "Delete all your information!",
+  deleteAllQuestion: "Do you really want to delete everything?",
+  deleteHabit: "Delete habit",
+  deleteHabitQuestion: "Do you really want to delete this habit?",
+  createHabitQuestion: "Cancel the habit creation?",
+};
+
 // Styles
-export const sectionStyle = `flex w-full flex-col px-6 pb-6`;
 export const sectionTitleStyle = `uppercase text-sm font-medium`;
+export const sectionStyle = `flex w-full flex-col px-6 pb-6`;

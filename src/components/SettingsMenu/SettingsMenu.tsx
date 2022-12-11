@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
+import { modalTexts } from "../../assets/constants";
 import useModal from "../../hooks/useModal";
 import { resetAll } from "../../utils/resetAll";
 import Modal from "../Modal";
@@ -15,6 +16,11 @@ export const SettingsMenu = ({
 }: SettingsMenuProps) => {
   const { isOpen, toggle } = useModal();
 
+  const closeModal = () => {
+    toggle();
+    closeSettings();
+  };
+
   // Styles
   const overlayStyle =
     "fixed top-0 left-0 right-0 bottom-0 max-w-[43rem] mx-auto px-4 bg-black/40 z-40";
@@ -25,7 +31,19 @@ export const SettingsMenu = ({
   return (
     <>
       <Modal isOpen={isOpen} toggle={toggle}>
-        <div>Yaay!!!</div>
+        <h1 className="text-lg font-medium">{modalTexts.deleteAllTitle}</h1>
+        <div className="mt-4 text-center">{modalTexts.deleteAllQuestion}</div>
+        <div className="mt-4 flex gap-4">
+          <button onClick={resetAll} className="bg-myRed px-4 py-2 rounded-lg">
+            Delete
+          </button>
+          <button
+            onClick={closeModal}
+            className="bg-myWhite px-4 py-2 rounded-lg"
+          >
+            Close
+          </button>
+        </div>
       </Modal>
 
       <AnimatePresence>
@@ -49,9 +67,9 @@ export const SettingsMenu = ({
               {/* <SettingsItem onClick={() => {}}>
                 Sort by name | date
               </SettingsItem> */}
-              <SettingsItem onClick={resetAll}>RESET ALL 😨</SettingsItem>
               {/* <SettingsItem onClick={() => {}}>Dark Theme</SettingsItem> */}
-              <SettingsItem onClick={toggle}>Open Modal</SettingsItem>
+
+              <SettingsItem onClick={toggle}>DELETE ALL 😨</SettingsItem>
               <SettingsItem onClick={closeSettings}>
                 <a href="https://bodik87.github.io/index.html" target="_blank">
                   To my portfolio 😊

@@ -37,10 +37,30 @@ body {
 }
 
 .modal-box {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
   background: white;
   width: 300px;
-  height: 300px;
   padding: 1rem;
   border-radius: 1rem;
+  transition: all 0.3ms;
+
+  animation-name: fadeInAnimation;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -1,9 +1,8 @@
-import { eachDayOfInterval, format, startOfToday, subDays } from "date-fns";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { getDaysInterval } from "../../utils/getDaysInterval";
-import { Checkbox } from "./ui/Checkbox";
+import { Checkbox } from "./Checkbox";
 
 export interface IHabit {
   color: string;

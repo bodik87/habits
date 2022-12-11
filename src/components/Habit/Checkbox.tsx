@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { useActions } from "../../../hooks/useActions";
-import { useTypedSelector } from "../../../hooks/useTypedSelector";
+import { useActions } from "../../hooks/useActions";
 
 const Unchecked = () => {
   return (

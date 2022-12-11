@@ -1,5 +1,5 @@
 import { getDaysInterval } from "../../utils/getDaysInterval";
-import { DateGroup } from "./ui/DateGroup";
+import { DateGroup } from "./DateGroup";
 
 export const Header = () => {
   const datesRow = getDaysInterval("dd-eee");

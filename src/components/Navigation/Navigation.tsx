@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { SettingsMenu } from "../SettingsMenu/SettingsMenu";
-import { Burger } from "./ui/Burger";
-import { Plus } from "./ui/Plus";
+import { Burger } from "./Burger";
+import { Plus } from "./Plus";
 
 export const Navigation = () => {
   const location = useLocation();
