@@ -83,7 +83,7 @@ export default function Calendar({ id }: ICalendarProps) {
         <div>SUN</div>
       </div>
 
-      <div className="grid grid-cols-7 mt-2 gap-4 -mx-4">
+      <div className="grid grid-cols-7 mt-4 gap-4 -mx-4">
         {days.map((day, dayIdx) => (
           <div
             key={day.toString()}
